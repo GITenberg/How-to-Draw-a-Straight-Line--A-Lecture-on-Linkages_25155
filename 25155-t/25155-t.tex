@@ -1,0 +1,2979 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+%                                                                         %
+% The Project Gutenberg EBook of How to Draw a Straight Line, by A.B. Kempe
+%                                                                         %
+% This eBook is for the use of anyone anywhere at no cost and with        %
+% almost no restrictions whatsoever.  You may copy it, give it away or    %
+% re-use it under the terms of the Project Gutenberg License included     %
+% with this eBook or online at www.gutenberg.org                          %
+%                                                                         %
+%                                                                         %
+% Title: How to Draw a Straight Line                                      %
+%        A Lecture on Linkages                                            %
+%                                                                         %
+% Author: A.B. Kempe                                                      %
+%                                                                         %
+% Release Date: April 24, 2008 [EBook #25155]                             %
+%                                                                         %
+% Language: English                                                       %
+%                                                                         %
+% Character set encoding: ISO-8859-1                                      %
+%                                                                         %
+% *** START OF THIS PROJECT GUTENBERG EBOOK HOW TO DRAW A STRAIGHT LINE ***
+%                                                                         %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+
+\def\ebook{25155}
+\newtoks\PGheader
+{\catcode`\#11\relax\catcode`\L\active\obeylines\obeyspaces%
+\global\PGheader={%
+The Project Gutenberg EBook of How to Draw a Straight Line, by A.B. Kempe
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+Title: How to Draw a Straight Line
+       A Lecture on Linkages
+
+Author: A.B. Kempe
+
+Release Date: April 24, 2008 [EBook #25155]
+
+Language: English
+
+Character set encoding: ISO-8859-1
+
+*** START OF THIS PROJECT GUTENBERG EBOOK HOW TO DRAW A STRAIGHT LINE ***
+}}
+\AtBeginDocument{\CreditsLine{%
+Produced by Joshua Hutchinson, David Wilson and the Online
+Distributed Proofreading Team at http://www.pgdp.net (This
+file was produced from images from the Cornell University
+Library: Historical Mathematics Monographs collection.)
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                       %%
+%% Packages and substitutions:                                           %%
+%%                                                                       %%
+%% memoir:   Advanced book class. Required.                              %%
+%% memhfixc: Part of memoir; needed to work with hyperref. Required.     %%
+%% amsmath:  AMS mathematics enhancements. Required.                     %%
+%% graphicx: Standard interface for graphics inclusion. Required.        %%
+%%           Driver option needs to be set explicitly.                   %%
+%% hyperref: Hypertext embellishments for pdf output. Required.          %%
+%%           Driver option needs to be set explicitly.                   %%
+%% indentfirst: Standard package to indent first line following chapter/ %%
+%%              section headings. Recommended.                           %%
+%% soul:     Facilitates effects like letterspacing. Recommended.        %%
+%% wrapfig:  Allows placement of graphics inside text cutouts.           %%
+%%             Strongly recommended.                                     %%
+%%                                                                       %%
+%%                                                                       %%
+%% Producer's Comments: A fairly straightforward text, except for        %%
+%%                      keeping the illustrations in sequence and not    %%
+%%                      too far from the text referring to them.         %%
+%%                                                                       %%
+%% Things to Check:                                                      %%
+%%                                                                       %%
+%% Figure 23 fits snugly at the bottom of page 30 (pdf page 38): OK      %%
+%% hyperref and graphicx driver option matches workflow: OK              %%
+%% color driver option matches workflow (color package is called         %%
+%%    by hyperref, so may rely on color.cfg): OK                         %%
+%% Spellcheck: OK                                                        %%
+%% Smoothreading pool: No                                                %%
+%% LaCheck: OK                                                           %%
+%% Lprep/gutcheck: OK                                                    %%
+%% PDF pages:  63                                                        %%
+%% PDF page size: 422 x 652pt (non standard)                             %%
+%% PDF bookmarks: created (point to figures) but closed by default       %%
+%% PDF document info: filled in                                          %%
+%% PDF Reader displays document title in window title bar                %%
+%% Images: 35 png and 1 pdf                                              %%
+%% No overfull boxes, one underfull hbox and ten underfull vboxes        %%
+%%    (caused by placement of images)                                    %%
+%%                                                                       %%
+%% pdflatex x2                                                           %%
+%%                                                                       %%
+%% Compile History:                                                      %%
+%%                                                                       %%
+%% Apr 08: dcwilson.                                                     %%
+%%         Compiled with pdfLaTeX TWO times.                             %%
+%%         MiKTeX 2.7, Windows XP Pro                                    %%
+%%                                                                       %%
+%%                                                                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\listfiles
+\documentclass[12pt,twoside,openright,onecolumn]{memoir}[2005/09/25]
+
+% the page size is chosen to roughly approximate the line length
+% and the number of lines per page of the original scans
+\setstocksize{230mm}{149mm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\setlrmarginsandblock{1.8cm}{2.1cm}{*}
+\setulmarginsandblock{2.1cm}{2.5cm}{*}
+\setlength{\headsep}{14pt}
+\setlength{\footskip}{0.6cm}
+\fixthelayout
+\typeoutlayout
+
+\AtBeginDocument{\baselineskip=1.15\baselineskip} % increase leading like the original book
+
+\makeatletter
+
+% font issues
+% Courier, for the PG licence stuff
+\DeclareRobustCommand\ttfamily % Courier, for the PG licence stuff
+        {\not@math@alphabet\ttfamily\mathtt
+         \fontfamily{pcr}\fontencoding{T1}\selectfont}
+% CM Dunhill as the only "standard" condensed font available
+\DeclareFontFamily{OT1}{cmdh}{\hyphenchar\font45 }
+\DeclareFontShape{OT1}{cmdh}{m}{n}{%
+      <10><10.95><12><14.4><17.28><20.74><24.88>cmdunh10%
+    }{}
+\newcommand*\cmdh{\fontfamily{cmdh}\fontencoding{OT1}\selectfont}
+
+\usepackage[latin1]{inputenc}[2006/05/05]
+\usepackage{amsmath}[2000/07/18]
+\IfFileExists{soul.sty}{% load soul package for letterspaced headings
+  \usepackage{soul}[2003/11/17]
+  }{% else make \textso a no-op
+  \providecommand\textso[1]{##1}
+  }
+\usepackage{indentfirst}[1995/11/23] % to override default behaviour
+
+% half-title and copyright pages
+\let\transcribersnotes\@empty
+\let\transcribersNotes\@empty
+\newcommand{\transcribersnote}[1]{%
+  \@ifnotempty{#1}{\g@addto@macro\transcribersnotes{#1\par}%
+    \@xp\@ifempty\@xp{\transcribersNotes}%
+      {\renewcommand{\transcribersNotes}{Transcriber's note}}
+      {\renewcommand{\transcribersNotes}{Transcriber's notes}}}}
+\newcommand{\CreditsLine}[1]{\newcommand{\thePr@ductionTeam}{#1}}
+
+\def\makehalftitlepage{% the boilerplate header followed by a real half-title page
+  \begingroup
+  \begin{PGboilerplate}
+    \PGlicencelink
+    \the\PGheader
+  \end{PGboilerplate}
+  \null\vfil
+  \cleartorecto
+  \null\vskip0ptplus1.5fil
+  \includegraphics[scale=1.8]{images/illus0003.png}
+  \bigskip
+  \begin{center}
+  \spaceskip=0.75em
+  \large
+  HOW TO DRAW A STRAIGHT LINE;\\[16pt]
+  \tiny
+  A\\[16pt]
+  \normalsize
+  LECTURE ON LINKAGES
+  \end{center}
+  \cleartorecto
+  \endgroup}
+
+\def\makecopyrightpage{% production credits and transcriber's notes
+  \begingroup
+  \null\vfil
+  \begin{center}\small
+    \thePr@ductionTeam
+  \end{center}
+  \vfil\vfil
+  \vbox{\Small\hsize=.75\textwidth\parindent=\z@\parskip=.5em
+  \textit{\transcribersNotes}\par\medskip\raggedright
+  \transcribersnotes\par}
+  \cleartorecto
+  \endgroup}
+
+% title page
+\aliaspagestyle{title}{empty}
+% couldn't find a font to match the scan, hence the mathcal T in the middle
+\renewcommand\maketitlehooka{\vspace*{-4em}\noindent
+  \setbox0=\hbox{\textit{\Large NA$\mathcal T$\kern-.15emURE SERIES.}}%
+  \copy0\vspace*{.25em}\hrule width\wd0 depth0pt height.4pt\vspace*{4em}}
+\pretitle{\begin{center}\cmdh\Large}
+\posttitle{\par\end{center}}
+\preauthor{\vfill\begin{center}{\tiny BY}\\[12pt]\large}
+\postauthor{\par\end{center}}
+\def\affiliation#1{\renewcommand{\maketitlehookc}{\begin{center}
+  \@setfontsize\miniscule\@vipt{9}
+  #1\par\end{center}}}
+\def\subtitle{\def\SubTitle}
+\predate{\vfill\begin{center}\scriptsize\so\SubTitle\par
+ \vspace{\z@\@plus2fill}\small}
+\postdate{\par\end{center}\vspace*{-2em}}
+
+% headers and footers
+\let\Small\footnotesize
+\makepagestyle{kempe}
+  \makeevenhead{kempe}{\Small\thepage}{\Small\slshape HOW TO DRAW A STRAIGHT LINE:}{}
+  \makeoddhead{kempe}{}{\Small\slshape A LECTURE ON LINKAGES}{\Small\thepage}
+  % make it hard to end the next (odd) page with a hyphen
+  \makeevenfoot{kempe}{}{}{\global\brokenpenalty10000}
+  % make it less hard to end the next (even) page with a hyphen
+  % (because the other end of the hyphen will still be on the same spread)
+  \makeoddfoot{kempe}{}{}{\global\brokenpenalty150}
+\pagestyle{kempe}
+\copypagestyle{chapter}{empty}
+\copypagestyle{licence}{headings}
+\makeevenhead
+  {licence}{\normalfont\Small\thepage}{\normalfont\Small\slshape LICENSING}{}
+\makeoddhead
+  {licence}{}{\normalfont\Small\slshape LICENSING}{\normalfont\Small\thepage}
+
+\brokenpenalty10000
+
+\renewcommand{\chaptitlefont}{\cmdh\Large\centering}
+\setlength{\beforechapskip}{40mm}
+\setlength{\afterchapskip}{24pt}
+\setsecheadstyle{\normalfont\cmdh\centering}
+\setsubsecheadstyle{\normalfont\large\centering}
+\def\Sectionformat#1#2{\textso{#1}} % subvert hyperref hook to letterspace section headings
+
+% illustrations
+% (external files are .png, plus one .pdf)
+% defaults are not stretchy enough
+\setlength\textfloatsep{20\p@ \@plus 6\p@ \@minus 4\p@}
+\setlength\intextsep   {14\p@ \@plus 8\p@ \@minus 4\p@}
+\renewcommand\bottomfraction{0.7}
+% driver should be specified in graphics.cfg;
+% if not, add explicit option to graphicx call
+\usepackage[final]{graphicx}[1999/02/16]
+\GenericWarning{*** }{***\MessageBreak
+ Important Note: this document comes with PNG and PDF graphics,\MessageBreak
+ so make sure you use an appropriate workflow!\MessageBreak
+ \expandafter\@gobble\@gobble}
+% to simplify making hyperlinks to illustrations
+\newcommand\figref[2][Fig.]{\hyperlink{fig:#2}{#1~#2}}
+% to insert an illustration, with an anchor at the top, and a bookmark entry
+\newcommand\Figure[2]{\setbox0=\hbox to\linewidth
+  {\hss\includegraphics[scale=1.77]{images/illus0#2.png}%
+  \hss}\leavevmode\llap{\Hy@writebookmark{}{Figure #1}{fig:#1}{1}{toc}}%
+  \raise\ht0\hbox{\DPanchor{fig:#1}}\box0}
+% to wrap text around Fig. 23
+\IfFileExists{wrapfig.sty}{% load package
+  \RequirePackage{wrapfig}[2003/01/31]
+  }{ % else make wrapfigure effectively just a normal figure*
+  \def\wrapfigure[##1]##2##3##4\end##5{%
+  \begin{figure*}[hbt]##4\end{figure*}\end{wrapfigure}}
+  }
+
+% pdf enhancements
+\usepackage[final,colorlinks]{hyperref}[2003/11/30]
+% we check if the driver is the useless (for pdf) "hypertex",
+% and if so we force pdftex instead and issue a warning
+\def\@tempa{hypertex}
+\ifx\@tempa\Hy@defaultdriver
+  \GenericWarning{*** }{***\MessageBreak
+   Inappropriate driver for hyperref specified: assuming pdftex.\MessageBreak
+   You should amend the source code if using another driver.\MessageBreak
+   \expandafter\@gobble\@gobble}
+  \Hy@SetCatcodes\input{hpdftex.def}\Hy@RestoreCatcodes
+\fi
+\usepackage{memhfixc}[2004/05/13]
+\providecommand\ebook{1wxyz} % temp value; will be overwritten by WWer
+\hypersetup{pdftitle=The Project Gutenberg eBook \#\ebook: How to Draw a Straight Line,
+  pdfsubject=A Lecture on Linkages,
+  pdfauthor=A.B. Kempe,
+  pdfkeywords={Joshua Hutchinson, David Wilson,
+               Project Gutenberg Online Distributed Proofreading Team,
+               Cornell University, Nature Series},
+  pdfstartview=Fit,
+  pdfstartpage=1,
+  pdfpagemode=UseNone,
+  pdfdisplaydoctitle,
+  bookmarksopen,
+  bookmarksopenlevel=1,
+  linktocpage=false,
+  pdfpagescrop=0 0 422 652, % 149x230mm
+  pdfpagelayout=TwoPageRight, % this is Acrobat 6's "Facing"
+  plainpages=false, linkcolor=\ifdraftdoc blue\else black\fi,
+  menucolor=\ifdraftdoc blue\else black\fi,
+  citecolor=\ifdraftdoc blue\else black\fi,
+  urlcolor=\ifdraftdoc magenta\else black\fi}
+
+% for adding explicit destinations
+\newcommand\DPanchor[1]{\rlap{\hyper@anchorstart{#1}\hyper@anchorend}}
+% to add an explicit level 0 bokmark
+\def\ForceBookmark#1#2{\llap{\Hy@writebookmark{}{#1}{#2}{0}{toc}}}
+
+% A quasi-verbatim environment for boilerplate, slightly less drastic than alltt
+% Spaces, linebreaks, $ , % and # will appear as typed
+% but unlike full verbatim, commands will still be interpreted and long lines will wrap
+% (comments documenting the boilerplate text need to use | as the comment character)
+% Uses slightly non-standard obeylines and active space.
+% The optional argument can be used to specify an explicit font size for the boilerplate.
+% If no optional argument is provided, a fontsize will be computed to allow--as nearly as
+% possible--73 fixed-width characters per \textwidth (the longest line in the PG license
+% had 73 characters at one stage)
+{\catcode`\^^M=\active % these lines must end with %
+  \global\def\PGobeylines{\catcode`\^^M\active \def^^M{\null\par}}}%
+{\obeyspaces%
+\global\def\PGb@ilerplate[#1]{\def\PGb@ilerplateHook{#1}\catcode`\%11\relax%
+\catcode`\$11\relax\catcode`\#11\relax\catcode`\|=14\relax%
+\pretolerance=\@m\hyphenpenalty=5000%
+\rightskip=\z@\@plus20em\relax%
+\frenchspacing\ttfamily\PGb@ilerplateHook%
+\def {\noindent\null\space}%
+\parindent=\z@\PGobeylines\obeyspaces}}
+\def\PGboilerplate{%
+ \@ifnextchar[{\PGb@ilerplate}{\PGb@ilerplate[\PGAutoFit{73}]}}
+\let\endPGboilerplate\empty
+% \PGAutoFit adjusts the fontsize so a specified number of
+% fixed-width characters will fit in the current \textwidth
+\def\PGrem@pt#1.#2Q@!!@Q{#1}
+\def\PGAutoFit#1{\setbox\z@=\hbox{m}\dimen@=\wd\z@\relax
+  \multiply\dimen@#1\relax \dimen@i=\dimen@\relax
+  \dimen@=\textwidth\relax
+  \dimen@ii=\f@size pt  \advance\dimen@ii0.5pt
+  \expandafter\multiply\expandafter\dimen@\expandafter\PGrem@pt\the\dimen@ii Q@!!@Q
+  \expandafter\divide\expandafter\dimen@\expandafter\PGrem@pt\the\dimen@i Q@!!@Q
+  \dimen@i=\dimen@\multiply\dimen@i12\divide\dimen@i10
+  \fontsize{\strip@pt\dimen@}{\strip@pt\dimen@i}\ttfamily\selectfont}
+{\catcode`\L\active
+\gdef\PGlicencelink{\catcode`\L\active\letL\PGlinklicence}}
+\def\PGlinklicence{\@ifnextchar i{\PG@lli}{L}}
+\def\PG@lli#1{\@ifnextchar c{\PG@llii}{Li}}
+\def\PG@llii#1{\@ifnextchar e{\PG@lliii}{Lic}}
+\def\PG@lliii#1{\@ifnextchar n{\PG@lliv}{Lice}}
+\def\PG@lliv#1{\@ifnextchar s{\PG@llv}{Licen}}
+\def\PG@llv#1{\@ifnextchar e{\PG@llvi}{Licens}}
+\def\PG@llvi#1{\hyperlink{PGlicence}{License}}
+
+\makeatother
+
+% to handle the endnotes in the text, with automatic hyperlinking back and forth
+\newcommand\Note[1]{~(\DPanchor{noteb:#1}\hyperlink{note:#1}{#1})}
+\newcommand\NoteText[1]{\par\medskip\indent(\DPanchor{note:#1}\hyperlink{noteb:#1}{#1})~\ignorespaces}
+
+% to deal with the scanned page breaks;
+% add a "draft" option to the documentclass invocation to see the scan numbers
+\ifdraftdoc
+\def\PG#1 #2.png#3
+{\marginpar{\noindent\null\hfill\Small #2.png}}
+\def\PGx#1 #2.png#3
+{}
+\else
+\def\PG#1 #2.png#3
+{}
+\let\PGx\PG
+\fi
+
+% other minor tweaks
+\lefthyphenmin=3
+\sloppy
+
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+
+\makehalftitlepage
+
+\iffalse
+\PG--File: 001.png---\********\*******\********\********\*********\--------
+% Production note
+PRODUCTION NOTE
+
+Cornell University Library
+produced this volume to replace
+the irreparably deteriorated
+original. It was scanned using
+Xerox software and equipment at
+600 dots per inch resolution
+and compressed prior to storage
+using CCITT Group 4
+compression. The digital data
+were used to create Cornell's
+replacement volume on paper
+that meets the ANSI Standard
+Z39.48-1984. The production of
+this volume was supported in
+part by the Commission on
+Preservation and Access and the
+Xerox Corporation. 1990.
+
+\PG--File: 002.png---\********\*******\********\********\*********\--------
+% [Blank Page]
+\PG--File: 003.png---\********\*******\********\********\*********\--------
+% Title page
+
+% [Illustration: NATURE SERIES]
+
+HOW TO DRAW A STRAIGHT LINE;
+
+A
+
+LECTURE ON LINKAGES.
+
+\PG--File: 004.png---\********\*******\********\********\*********\--------
+% [Illustration]
+\PG--File: 005.png---\********\******\********\********\*********\---------
+% Title page
+
+<i>NATURE SERIES</i>.
+
+HOW TO DRAW A STRAIGHT LINE;
+
+A
+
+LECTURE ON LINKAGES.
+
+BY
+
+A. B. KEMPE, B.A.,
+
+OF THE INNER TEMPLE, ESQ.;
+MEMBER OF THE COUNCIL OF THE LONDON MATHEMATICAL SOCIETY;
+AND LATE SCHOLAR OF TRINITY COLLEGE, CAMBRIDGE.
+
+WITH NUMEROUS ILLUSTRATIONS.
+
+London:
+
+MACMILLAN AND CO,
+
+1877.
+
+[<i>The Right of Translation and Reproduction is Reserved.</i>]
+\fi
+% NATURE SERIES in preamble
+\title{HOW TO DRAW A STRAIGHT LINE\Huge;\\[28pt]
+\normalfont\tiny
+\protect\hypertarget{titlepage}{A}\protect\ForceBookmark{Title Page}{titlepage}\\[28pt]
+\large
+LECTURE ON LINKAGES.}
+\author{A. B. KEMPE, B.A.,}
+% BY in preamble
+\affiliation{OF THE INNER TEMPLE, ESQ.;\\
+MEMBER OF THE COUNCIL OF THE LONDON MATHEMATICAL SOCIETY;\\
+AND LATE SCHOLAR OF TRINITY COLLEGE, CAMBRIDGE.}
+\subtitle{WITH NUMEROUS ILLUSTRATIONS.}
+\date{\protect\includegraphics
+  [height=11pt,viewport=0 20 182 72]{images/london.pdf}\;: \\ % graphic draws outside boundingbox
+  1877.}
+
+\maketitle
+
+\clearpage
+
+\transcribersnote{The original book was published by MacMillan and Co.,
+ and printed by R.~Clay, Sons, and Taylor, Printers, Bread Street Hill,
+ Queen Victoria Street.}
+
+\transcribersnote{Inconsistent spelling (\hyperlink{qip}{quadriplane}/\hyperlink{qap}{quadruplane}) has been retained.
+Some illustrations have been removed slightly from their original locations to avoid infelicitous page breaks.
+Minor typographical corrections are documented in the \LaTeX\ source.}
+\makecopyrightpage
+
+\iffalse
+\PG--File: 006.png---\********\******\********\********\*********\---------
+% Title page verso
+
+LONDON:
+
+R. CLAY, SONS, AND TAYLOR, PRINTERS,
+
+BREAD STREET HILL,
+
+QUEEN VICTORIA STREET.
+\PG--File: 007.png---\********\******\********\********\*********\---------
+\fi
+\chapter*{}
+\subsection*{\protect\hypertarget{notice}{NOTICE}.\protect\ForceBookmark{Notice}{notice}}
+
+\textsc{This} Lecture was one of the series delivered to science
+teachers last summer in connection with the Loan
+Collection of Scientific Apparatus. I have taken the
+opportunity afforded by its publication to slightly
+enlarge it and to add several notes. For the illustrations
+I am indebted to my brother, Mr.\ \textsc{H.~R. Kempe},
+without whose able and indefatigable co-operation in
+drawing them and in constructing the models furnished
+by me to the Loan Collection I could hardly have
+undertaken the delivery of the Lecture, and still less
+its publication.
+
+\medskip
+ 7, \textsc{Crown Office Row, Temple,}
+
+\qquad \textit{January $16$th}, 1877.
+\iffalse
+\PG--File: 008.png---\********\******\********\********\*********\---------
+% [Blank Page]
+\PG--File: 009.png---\********\******\********\********\*********\---------
+% half title page
+HOW TO DRAW A STRAIGHT LINE;
+
+A
+
+LECTURE ON LINKAGES.
+\PG--File: 010.png---\********\******\********\********\*********\---------
+% [Blank Page]
+\PG--File: 011.png---\********\******\********\********\*********\---------
+\fi
+
+\mainmatter
+\pagestyle{kempe}
+
+\chapter*{\protect\hypertarget{main}{HOW TO DRAW A STRAIGHT LINE}\Huge:\protect\ForceBookmark{Text}{main}}
+
+\section*{A LECTURE ON LINKAGES.}
+
+\noindent\textsc{The} great geometrician Euclid, before demonstrating to
+us the various propositions contained in his \textit{Elements of
+Geometry}, requires that we should be able to effect certain
+processes. These \emph{Postulates}, as the requirements are
+termed, may roughly be said to demand that we should
+be able to describe straight lines and circles. And
+so great is the veneration that is paid to this master-geometrician,
+that there are many who would refuse the
+designation of ``geometrical'' to a demonstration which
+requires any other construction than can be effected by
+straight lines and circles. Hence many problems---such as,
+for example, the trisection of an angle---which can readily
+be effected by employing other simple means, are said to
+have no geometrical solution, since they cannot be solved
+by straight lines and circles only.
+
+It becomes then interesting to inquire how we can effect
+these preliminary requirements, how we can describe these
+circles and these straight lines, with as much accuracy
+as the physical circumstances of the problems will admit of.
+\PG--File: 012.png---\********\******\********\********\*********\---------
+
+As regards the circle we encounter no difficulty. Taking
+Euclid's definition, and assuming, as of course we must,
+that our surface on which we wish to describe the circle is
+a plane,\Note{1}\footnote
+  {These figures refer to Notes at the end of the lecture.} we see that we have only to make our tracing-point
+preserve a distance from the given centre of the circle
+constant and equal to the required radius. This can readily
+be effected by taking a flat piece of any form, such as the
+piece of cardboard I have here, and passing a pivot which
+is fixed to the given surface at the given centre through a
+hole in the piece, and a tracer or pencil through another
+hole in it whose distance from the first is equal to the
+given radius; we shall then, by moving the pencil, be able,
+even with this rude apparatus, to describe a circle with considerable
+accuracy and ease; and when we come to employ
+very small holes and pivots, or even large ones, turned with
+all that marvellous truth which the lathe affords, we shall
+get a result unequalled perhaps among mechanical apparatus
+for the smoothness and accuracy of its movement. The
+apparatus I have just described is of course nothing but a
+simple form of a pair of compasses, and it is usual to say
+that the third Postulate postulates the compasses.
+
+But the straight line, how are we going to describe that?
+Euclid defines it as ``lying evenly between its extreme
+points.'' This does not help us much. Our text-books say
+that the first and second Postulates postulate a ruler\Note{2}.
+But surely that is begging the question. If we are to draw
+a straight line with a ruler, the ruler must itself have a
+straight edge; and how are we going to make the edge
+straight? We come back to our starting-point.
+
+Now I wish you clearly to understand the difference
+\PG--File: 013.png---\********\******\********\********\*********\---------
+between the method I just now employed for describing a
+circle, and the ruler method of describing a straight line.
+If I applied the ruler method to the description of a circle,
+I should take a circular lamina, such as a penny, and trace
+my circle by passing the pencil round the edge, and I should
+have the same difficulty that I had with the straight-edge,
+for I should first have to make the lamina itself circular.
+But the other method I employed involves no begging the
+question. I do not first assume that I have a circle and
+then use it to trace one, but simply require that the distance
+between two points shall be invariable. I am of course
+aware that we do employ circles in our simple compass, the
+pivot and the hole in the moving piece which it fits are
+such; but they are used not because they are the curves
+we want to describe (they are not so, but are of a different
+size), as is the case with the straight-edge, but because,
+through the impossibility of constructing pivots or holes of
+no finite dimensions, we are forced to adopt the best substitute
+we can for making one point in the moving piece
+remain at the same spot. If we employ a very small pivot
+and hole, though they be not truly circular, the error in
+the description of a circle of moderate dimensions will be
+practically infinitesimal, not perhaps varying beyond the
+width of the thinnest line which the tracer can be made to
+describe; and even when we employ large pivots and holes
+we shall get results as accurate, because those pivots and
+holes may be made by the employment of very small ones
+in the machine which makes them.
+
+It appears then, that although we have an easy and accurate
+method of describing a circle, we have at first sight no
+corresponding means of describing a straight line; and
+\PG--File: 014.png---\********\******\********\********\*********\---------
+there would seem to be a substantial difficulty in producing
+what mathematicians call the simplest curve, so that the
+question how to get over that difficulty becomes one of a
+decided theoretical interest.
+
+Nor is the interest theoretical only, for the question is
+one of direct importance to the practical mechanician. In
+a large number of machines and scientific apparatus it is
+requisite that some point or points should move accurately
+in a straight line with as little friction as possible. If the
+ruler principle is adopted, and the point is kept in its path
+by guides, we have, besides the initial difficulty of making
+the guides truly straight, the wear and tear produced by
+the friction of the sliding surfaces, and the deformation
+produced by changes of temperature and varying strains.
+It becomes therefore of real consequence to obtain, if
+possible, some method which shall not involve these objectionable
+features, but possess the accuracy and ease
+of movement which characterise our circle-producing
+apparatus.
+
+Turning to that apparatus, we notice that all that is
+requisite to draw with accuracy a circle of any given
+radius is to have the distance between the pivot and the
+tracer properly determined, and if I pivot a second ``piece''
+to the fixed surface at a second point having a tracer as
+the first piece has, by properly determining the distance
+between the second tracer and pivot, I can describe a second
+circle whose radius bears any proportion I please to that of
+the first circle. Now, removing the tracers, let me pivot
+a third piece to these two \textit{radial} pieces, as I may call them,
+at the points where the tracers were, and let me fix a tracer
+at any point on this third or \textit{traversing} piece. You will
+\PG--File: 015.png---\******\******\********\********\*********\-----------
+at once see that if the radial pieces were big enough the
+tracer would describe circles or portions of circles on \textit{them},
+though they are in motion, with the same ease and accuracy
+as in the case of the simple circle-drawing apparatus; the
+tracer will not however describe a circle on the \textit{fixed} surface,
+but a complicated curve.
+
+\begin{figure*}[hbt]
+\Figure{1}{015}
+% [Illustration: Fig. 1.]
+\end{figure*}
+
+This curve will, however, be described with all the ease
+and accuracy of movement with which the circles were described,
+and if I wish to reproduce in a second apparatus the
+curves which I produce with this, I have only to get the
+distances between the pivots and tracers accurately the same
+in both cases, and the curves will also be accurately the same.
+I could of course go on adding fresh pieces \textit{ad libitum}, and
+I should get points on the structure produced, describing in
+general very complicated curves, but with the same results
+as to accuracy and smoothness, \textit{the reproduction of any particular
+curve depending solely on the correct determination of a
+certain definite number of distances}.
+
+These systems, built up of pieces pointed or pivoted
+together, and turning about pivots attached to a fixed base,
+so that the various points on the pieces all describe definite
+\PG--File: 016.png---\******\******\********\********\*********\-----------
+curves, I shall term ``link-motions,'' the pieces being termed
+``links.'' As, however, it sometimes facilitates the consideration
+of the properties of these structures to regard
+them apart from the base to which they are pivoted, the
+word "linkage" is employed to denote any combination of
+pieces pivoted together. When such a combination is
+pivoted in any way to a fixed base, the motion of points on
+it not being necessarily confined to fixed paths, the link-structure
+is called a ``linkwork:'' a ``linkwork'' in which
+the motion of every point is in some definite path being,
+as before stated, termed a ``link-motion.'' I shall only add
+to these expressions two more: the point of a link-motion
+which describes any curve is called a ``graph,'' the curve
+being called a ``gram''\Note{3}.
+
+The consideration of the various properties of these ``linkages''
+has occupied much attention of late years among
+mathematicians, and is a subject of much complexity and
+difficulty. With the purely mathematical side of the
+question I do not, however, propose to deal to-day, as we
+shall have quite enough to do if we confine our attention to
+the practical results which mathematicians have obtained,
+and which I believe only mathematicians could have obtained.
+That these results are valuable cannot I think
+be doubted, though it may well be that their great beauty
+has led some to attribute to them an importance which they
+do not really possess; and it may be that fifty years ago
+they would have had a value which, through the great improvements
+that modern mechanicians have effected in the
+production of true planes, rulers and other exact mechanical
+structures, cannot now be ascribed to them. But linkages
+have not at present, I think, been sufficiently put before
+\PG--File: 017.png---\******\*******\********\********\*********\----------
+the mechanician to enable us to say what value should
+really be set upon them.
+
+The practical results obtained by the use of linkages
+are but few in number, and are closely connected with the
+problem of ``straight-line motion,'' having in fact been
+discovered during the investigation of that problem, and I
+shall be naturally led to consider them if I make ``straight-line
+motion'' the backbone of my lecture. Before, however,
+plunging into the midst of these linkages it will be useful
+to know how we can practically construct such models as
+we require; and here is one of the great advantages of our
+subject---we can get our results visibly before us so very
+easily. Pins for fixed pivots, cards for links, string or cotton
+for the other pivots, and a dining-room table, or a drawing-board
+if the former be thought objectionable, for a fixed
+base, are all we require. If something more artistic be
+preferred, the plan adopted in the models exhibited by me
+in the Loan Collection can be employed. The models were
+constructed by my brother, Mr. H.~R. Kempe, in the following
+way. The bases are thin deal boards painted black;
+the links are neatly shaped out of thick cardboard (it is
+hard work making them, you have to sharpen your knife
+about every ten minutes, as the cardboard turns the edge
+very rapidly); the pivots are little rivets made of catgut,
+the heads being formed by pressing the face of a heated
+steel chisel on the ends of the gut after it is passed through
+the holes in the links; this gives a very firm and smoothly-working
+joint. More durable links may be made of tin-plate;
+the pivot-holes must in this case be punched, and
+the eyelets used by bootmakers for laced boots employed
+as pivots; you can get the proper tools at a trifling expense
+at any large tool shop.
+\PG--File: 018.png---\******\******\********\********\*********\-----------
+
+Now, as I have said, the curves described by the
+various points on these link-motions are in general very
+complex. But they are not necessarily so. By properly
+choosing the distances at our disposal we can
+make them very simple. But can we go to the fullest
+extent of simplicity and get a point on one of them moving
+accurately in a straight line? That is what we are going
+to investigate.
+
+To solve the problem with our single link is clearly
+impossible: all the points on it describe circles. We must
+therefore go to the next simple case---our three-link motion.
+In this case you will see that we have at our disposal the
+distance between the fixed pivots, the distances between the
+pivots on the radial links, the distance between the pivots
+on the traversing link, and the distances of the tracer from
+those pivots; in all six different distances. Can we choose
+those distances so that our tracing-point shall move in a
+straight line?
+
+The first person who investigated this was that great man
+James Watt. ``Watt's Parallel Motion''\Note{4}, invented in
+1784, is well known to every engineer, and is employed in
+nearly every beam-engine. The apparatus, reduced to its
+simplest form, is shown in \figref{2}.
+
+\begin{figure*}[hbt]
+\Figure{2}{019}
+% [Illustration: Fig.~2.]
+\end{figure*}
+
+The radial bars are of equal length,---I employ the word
+``length'' for brevity, to denote the distance between the
+pivots; the links of course may be of any length or shape,---and
+the distance between the pivots or the traversing link
+is such that when the radial bars are parallel the line
+joining those pivots is perpendicular to the radial bars.
+The tracing-point is situate half-way between the pivots
+on the traversing piece. The curve described by the tracer
+is, if the apparatus does not deviate much from its mean
+\PG--File: 019.png---\******\******\********\******\*********\-------------
+position, approximately a straight line. The reason of this
+is that the circles described by the extremities of the
+radial bars have their concavities turned in opposite directions,
+and the tracer being half-way between, describes a
+curve which is concave neither one way nor the other, and
+is therefore a straight line. The curve is not, however,
+accurately straight, for if I allow the tracer to describe the
+whole path it is capable of describing, it will, when it
+gets some distance from its mean position, deviate considerably
+from the straight line, and will be found to describe a
+figure 8, the portions at the crossing being nearly straight.
+We know that they are not quite straight, because it is
+impossible to have such a curve partly straight and partly
+curved.
+
+For many purposes the straight line described by Watt's
+apparatus is sufficiently accurate, but if we require an exact
+one it will, of course, not do, and we must try again. Now
+it is capable of proof that it is impossible to solve the
+problem with three moving links; closer approximations
+\PG--File: 020.png---\******\******\********\******\*********\-------------
+to the truth than that given by Watt can be obtained, but
+still not actual truth.
+
+I have here some examples of these closer approximations.
+The first of these, shown in \figref{3}, is due to Richard
+Roberts of Manchester.
+
+\begin{figure*}[hbt]
+\Figure{3}{020}
+% [Illustration: Fig.~3.]
+\end{figure*}
+
+The radial bars are of equal length, the distance
+between the fixed pivots is twice that of the pivots on the
+traversing piece, and the tracer is situate on the traversing
+piece, at a distance from the pivots on it equal to the lengths
+of the radial bars. The tracer in consequence coincides
+with the straight line joining the fixed pivots at those
+pivots and half-way between them. It does not, however,
+coincide at any other points, but deviates very slightly
+between the fixed pivots. The path described by the
+tracer when it passes the pivots altogether deviates from
+the straight line.
+\PG--File: 021.png---\******\**************\********\********\*********\---
+
+The other apparatus was invented by Professor Tchebicheff
+of St.\ Petersburg. It is shown in \figref{4}. The radial
+\begin{figure*}[hbt]
+\Figure{4}{021}
+% [Illustration: Fig.~4.]
+\end{figure*}
+bars are equal in length, being each in my little model
+five inches long. The distance between the fixed pivots
+must then be four inches, and the distance between the
+pivots or the traversing bar two inches. The tracer is
+taken half-way between these last. If now we draw a
+straight line---I had forgotten that we cannot do that
+yet, well, if we draw a straight line, popularly so called---through
+the tracer in its mean position, as shown in
+the figure, parallel to that forming the fixed pivots, it
+will be found that the tracer will coincide with that line at
+the points where verticals through the fixed pivots cut it as
+well as at the mean position, but, as in the case of Roberts's
+parallel motion, it coincides nowhere else, though its deviation
+is very small as long as it remains between the verticals.
+\PG--File: 022.png---\******\**************\********\********\*********\---
+
+We have failed then with three links, and we must go on
+to the next case, a five-link motion---for you will observe
+that we must have an odd number of links if we want an
+apparatus describing definite curves. Can we solve the
+problem with five? Well, we can; but this was not the
+first accurate parallel motion discovered, and we must give
+the first inventor his due (although he did not find the
+simplest way) and proceed in strict chronological order.
+
+In 1864, eighty years after Watt's discovery, the problem
+was first solved by M.~Peaucellier, an officer of Engineers
+\begin{figure*}[hbt]
+\Figure{5}{022}
+% [Illustration: Fig.~5.]
+\end{figure*}
+in the French army. His discovery was not at first estimated
+at its true value, fell almost into oblivion, and was
+rediscovered by a Russian student named Lipkin, who got
+a substantial reward from the Russian Government for his
+supposed originality. However, M.~Peaucellier's merit
+has at last been recognized, and he has been awarded the
+great mechanical prize of the Institute of France, the
+``Prix Montyon.''
+
+M.~Peaucellier's apparatus is shown in \figref{5}. It has,
+as you see, seven pieces or links. There are first of all
+\PG--File: 023.png---\******\**************\********\********\*********\---
+two long links of equal length. These are both pivoted at
+the same fixed point; their other extremities are pivoted to
+opposite angles of a rhombus composed of four equal shorter
+links. The portion of the apparatus I have thus far
+described, considered apart from the fixed base, is a linkage
+termed a ``Peaucellier cell.'' We then take an \emph{extra} link,
+and pivot it to a fixed point whose distance from the first
+fixed point, that to which the cell is pivoted, is the same as
+the length of the extra link; the other end of the extra
+link is then pivoted to one of the free angles of the
+rhombus; the other free angle of the rhombus has a pencil
+at its pivot. That pencil will accurately describe a straight
+line.
+
+I must now indulge in a little simple geometry. It is
+absolutely necessary that I should do so in order that you
+may understand the principle of our apparatus.
+
+In \figref{6}, $Q C$ is the extra link pivoted to the fixed point
+\begin{figure*}[htb]
+\Figure{6}{024}
+% [Illustration: Fig.~6.]
+\end{figure*}
+$Q$, the other pivot on it $C$, describing the circle
+$O C R$. The
+straight lines $P M$ and $P' M'$ are supposed to be perpendicular
+to $M R Q O M'$.
+
+Now the angle $O C R$, being the angle in a semicircle, is
+a right angle. Therefore the triangles $O C R$, $O M P$ are
+similar. Therefore,
+\[
+O C : O R :: O M : O P.
+\]
+Therefore,
+\[
+OC\cdot OP = OM\cdot OR,
+\]
+wherever $C$ may be on the circle. That is, since $O M$ and
+$O R$ are both constant, if while $C$ moves in a circle $P$ moves
+\PG--File: 024.png---\******\**************\********\******\*********\-----
+so that $O$, $C$, $P$ are always in the same straight line, and
+so that $OC\cdot OP$ is always constant; then $P$ will describe
+the straight line $P~M$ perpendicular to the line $O~Q$.
+
+It is also clear that if we take the point $P'$ on the other
+side of $O$, and if $OC\cdot OP'$ is constant $P'$ will describe the
+straight line $P'M'$. This will be seen presently to be important.
+
+Now, turning to \figref{7}, which is a skeleton drawing of
+\begin{figure*}[hbt]
+\Figure{7}{025}
+% [Illustration: Fig. 7.]
+\end{figure*}
+the Peaucellier cell, we see that from the symmetry of the
+construction of the cell, $O$, $C$, $P$, all lie in the same straight % "t" not printed in scan
+line, and if the straight line $A~n$ be drawn perpendicular
+to $C~P$---it must still be an imaginary one, as we have not
+proved yet that our apparatus does draw a straight line---$Cn$
+is equal to $nP$.
+\PG--File: 025.png---\******\**************\*******\********\********\-----
+
+Now,
+\begin{align*}
+	O~A^2& = On^2 + An^2\\
+	A~P^2& = Pn^2 + An^2
+\end{align*}
+therefore,
+\begin{align*}
+	O~A^2-A~P^2& = On^2-Pn^2\\
+	& = [On-Pn] \cdot [ On + Pn ]\\
+	& = OC \cdot OP.
+\end{align*}
+Thus since $O~A$ and $A~P$ are both constant $OC \cdot OP$ is
+always constant, however far or near $C$ and $P$ may be to $O$.
+If then the pivot $O$ be fixed to the point $O$ in \figref{6}, and
+the pivot $C$ be made to describe the circle in the figure by
+being pivoted to the end of the extra link, the pivot $P$ will
+satisfy all the conditions necessary to make it move in a
+straight line, and if a pencil be fixed at $P$ it will draw a
+straight line. The distance of the line from the fixed
+pivots will of course depend on the magnitude of the
+quantity $OA^2-OP^2$ which may be varied at pleasure.
+
+I hope you clearly understand the two elements composing
+the apparatus, the extra link and the cell, and
+the part each plays, as I now wish to describe to you some
+modifications of the cell. The extra link will remain the
+\PG--File: 026.png---\******\**************\********\******\********\------
+same as before, and it is only the cell which will undergo
+alteration.
+
+If I take the two linkages in \figref{8}, which are known
+\begin{figure*}[hbt]
+\Figure{8}{026}
+% [Illustration: Fig. 8.]
+\end{figure*}
+as the ``kite'' and the ``spear-head,'' and place one on the
+other so that the long links of the one coincide with those
+of the other, and then amalgamate the coincident long links
+together, we shall get the original cell of \figref[Figs.]{5} and\figref[]{7}.
+If then we keep the angles between the long links, or
+that between the short links, the same in the ``kite'' and
+``spear-head,'' we see that the height of the ``kite''
+multiplied by that of the ``spear-head'' is constant.
+
+Let us now, instead of amalgamating the long links of
+the two linkages, amalgamate the short ones. We then get
+the linkage of \figref{9}; and if the pivot where the short
+\begin{figure*}[hbt]
+\Figure{9}{027a}
+% [Illustration: Fig. 9.]
+\end{figure*}
+links meet is fixed, and one of the other free pivots be
+made to move in the circle of \figref{6} by the extra link,
+the other will describe, not the straight line $P~M$, but the
+straight line $P'~M'$. In this form, which is a very compact
+\PG--File: 027.png---\******\**************\********\******\********\------
+one, the motion has been applied in a beautiful manner
+to the air engines which are employed to ventilate the
+Houses of Parliament. The ease of working and absence
+of friction and noise is very remarkable. The engines
+were constructed and the Peaucellier apparatus adapted to
+them by Mr.\ Prim, the engineer to the Houses, by whose
+courtesy I have been enabled to see them, and I can assure
+you that they are well worth a visit.
+
+Another modification of the cell is shown in \figref{10}.
+If instead of employing a ``kite'' and ``spear-head'' of the
+\begin{figure*}[hbt]
+\Figure{10}{027b}
+% [Illustration: Fig. 10.]
+\end{figure*}
+same dimensions, I take the same ``kite'' as before, but
+use a ``spear-head'' of half the size of the former one,
+\PG--File: 028.png---\******\**************\********\******\********\------
+the angles being however kept the same, the product of the
+heights of the two figures will be half what it was before,
+but still constant. Now instead of superimposing the
+links of one figure on the other, it will be seen that in % Fig.\
+\figref{10} I fasten the shorter links of each figure together, end
+to end. Then, as in the former cases, if I fix the pivot at
+the point where the links are fixed together, I get a cell
+which may be used, by the employment of an extra link, to
+describe a straight line. A model employing this form of
+cell is exhibited in the Loan Collection by the Conservatoire
+des Arts et Métiers of Paris, and is of exquisite workmanship;
+the pencil seems to swim along the straight line.
+
+M.~Peaucellier's discovery was introduced into England
+by Professor Sylvester in a lecture he delivered at the
+Royal Institution in January, 1874\Note{5}, which excited very
+great interest and was the commencement of the consideration
+of the subject of linkages in this country.
+
+In August of the same year Mr.\ Hart of Woolwich
+Academy read a paper at the British Association meeting\Note{6},
+in which he showed that M.~Peaucellier's cell could be
+replaced by an apparatus containing only four links instead
+of six. The new linkage is arrived at thus.
+
+If to the ordinary Peaucellier cell I add two fresh links
+of the same length as the long ones I get the double, or
+rather quadruple cell, for it may be used in four different
+ways, shown in \figref{11}. Now Mr.\ Hart found that if he
+\begin{figure*}[hbt]
+\Figure{11}{029a}
+% [Illustration: Fig. 11.]
+\end{figure*}
+took an ordinary parallelogrammatic linkwork, in which the
+adjacent sides are unequal, and crossed the links so as to
+form what is called a contra-parallelogram, \figref{12}, and
+\begin{figure*}[hbt]
+\Figure{12}{029b}
+% [Illustration: Fig. 12.]
+\end{figure*}
+then took four points on the four links dividing the distances
+between the pivots in the same proportion, those
+\PG--File: 029.png---\******\**************\********\******\********\------
+four points had exactly the same properties as the four
+points of the double cell. That the four points always lie
+in a straight line is seen thus: considering the triangle
+$abd$, since $aO:Ob:\;:aP:Pd$ therefore $OP$ is parallel to
+$bd$, and the perpendicular distance between the parallels is
+to the height of the triangle $abd$ as $Ob$ is to $ab$; the same
+reasoning applies to the straight line $CO'$, and since $ab:Ob:\;:c~d:O'd$
+and the heights of the triangles $abd$, $cbd$, are clearly
+the same, therefore the distances of $O~P$ and $O'C$ from $b~d$
+are the same, and $O~C~P~O'$ lie in the same straight line.
+
+That the product $OC\cdot OP$ is constant appears at once
+\PG--File: 030.png---\******\**************\*******\******\********\-------
+when it is seen that $ObC$ is half a ``spear-head'' and $OaP$
+half a ``kite;'' similarly it may be shown that $O'P\cdot O'C$ is
+constant, as also $OC\cdot CO'$ and $OP\cdot PO'$. Employing then the
+Hart's cell as we employed Peaucellier's, we get a five-link
+straight line motion. A model of this is exhibited in the
+Loan Collection by M.~Breguet.
+
+I now wish to call your attention to an extension of Mr.\
+Hart's apparatus, which was discovered simultaneously by
+Professor Sylvester and myself. In Mr.\ Hart's apparatus
+we were only concerned with bars and points on those bars,
+but in the apparatus I wish to bring before you we have
+pieces instead of bars. I think it will be more interesting
+if I lead up to this apparatus by detailing to you its
+history, especially as I shall thereby be enabled to bring
+before you another very elegant and very important linkage---the
+discovery of Professor Sylvester.
+
+When considering the problem presented by the ordinary
+three-\emph{bar} motion consisting of two radial bars and a traversing
+bar, it occurred to me---I do not know how or why,
+it is often very difficult to go back and find whence one's
+ideas originate---to consider the relation between the curves
+described by the points on the traversing bar in any given
+three-bar motion, and those described by the points on
+a similar three-bar motion, but in which the traversing bar
+and one of the radial bars had been made to change places.
+The proposition was no sooner stated than the solution became
+obvious; the curves were precisely similar. In \figref{13}
+\begin{figure*}[hbt]
+\Figure{13}{031}
+% [Illustration: Fig. 13.]
+\end{figure*}
+let $C~D$ and $B~A$ be the two radial bars turning about the
+fixed centres $C$ and $B$, and let $D~A$ be the traversing bar,
+and let $P$ be any point on it describing a curve depending
+on the lengths of $AB$, $BC$, $CD$, and $DA$. Now add to the
+\PG--File: 031.png---\******\**************\********\******\********\------
+three-bar motion the bars $CE$ and $EAP'$, $CE$ being equal to
+$DA$, and $EA$ equal to $CD$. $C~D~A~E$ is then a parallelogram,
+and if an imaginary line $CPP'$ be drawn, cutting $EA$ produced
+in $P'$, it will at once be seen that $P'$ is a fixed point
+on $EA$ produced, and $CP'$ bears always a fixed proportion to
+$CP$, viz., $CD:CE$. Thus the curve described by $P'$ is precisely
+the same as that described by $P$, only it is larger in
+the proportion $CE:CD$. Thus if we take away the bars
+$CD$ and $DA$, we shall get a three-bar linkwork, describing
+precisely the same curves, only of different magnitude, as
+our first three-bar motion described, and this new three-bar
+linkwork is the same as the old with the radial link $CD$
+and the traversing link $DA$ interchanged\Note{7}.
+
+On my communicating this result to Professor Sylvester,
+he at once saw that the property was one not confined to
+\PG--File: 032.png---\******\**************\********\******\********\------
+the particular case of points lying on the traversing bar,
+in fact to three-\emph{bar} motion, but was possessed by three-\emph{piece}
+motion. In \figref{14} $C~D~A~B$ is a three-bar motion, as in
+\figref{13}, but the tracing point or ``graph'' does not lie on
+the line joining the joints $A~D$, but is anywhere else on a
+\begin{figure*}[hbt]
+\Figure{14}{032}
+% [Illustration: Fig. 14.]
+\end{figure*}
+``piece'' on which the joints $A~D$ lie. Now, as before, add
+the bar $C~E$, $C~E$ being equal to $A~D$, and the piece
+$A~E~P'$, making $A~E$ equal to $C~D$, and the triangle
+$A~E~P'$ similar to the triangle $P~D~A$; so that the angles
+$A~E~P'$, $A~D~P$ are equal, and
+\[
+P'~E : E~A :\;: A~D : D~P.
+\]
+It follows easily from this---you can work it out for yourselves
+without difficulty---that the ratio $P'~C : P~C$ is constant
+and the angle $P~C~P'$ is constant; thus the paths of
+$P$ and $P'$, or the ``grams'' described by the ``graphs,'' $P$
+\PG--File: 033.png---\******\**************\********\******\********\------
+and $P'$, are similar, only they are of different sizes, and one
+is turned through an angle with respect to the other.
+
+Now you will observe that the two proofs I have given
+are quite independent of the bar $A~B$, which only affects
+the particular curve described by $P$ and $P'$. If we get rid
+of $A~B$, in both cases we shall get in the first figure the
+ordinary pantagraph, and in the second a beautiful extension
+of it, called by Professor Sylvester, its inventor, the
+\textit{Plagiograph} or \textit{Skew Pantagraph}. Like the Pantagraph, it
+will enlarge or reduce figures, but it will do more, it will
+turn them through any required angle, for by properly
+choosing the position of $P$ and $P'$, the ratio of $C~P$ to
+$C~P'$ can be made what we please, and also the angle
+$P~C~P'$ can be made to have any required value. If the
+angle $P~C~P'$ is made equal to 0 or 180°, we get the two
+forms of the pantagraph now in common use; if it be
+made to assume successively any value which is a sub-multiple
+of 360°, we can, by passing the point $P$ each time
+over the same pattern make the point $P'$ reproduce it
+round the fixed centre $C$ after the fashion of a kaleidoscope.
+I think you will see from this that the instrument, which
+has, as far as I know, never been practically constructed,
+deserves to be put into the hands of the designer. I give
+\hyperlink{fig:15}{here} a picture of a little model of a possible form for the
+\begin{figure*}[hbt]
+\Figure{15}{034}
+% [Illustration: Fig. 15.]
+\end{figure*}
+instrument furnished by me to the Loan Collection by
+request of Professor Sylvester\Note{8}.
+
+After this discovery of Professor Sylvester, it occurred to
+him and to me simultaneously---our letters announcing our
+discovery to each other crossing in the post---that the
+principle of the plagiograph might be extended to Mr.\
+Hart's contra-parallelogram; and this discovery I shall
+\PG--File: 034.png---\******\**************\********\******\********\------
+now proceed to explain to you. I shall, however, be
+more easily able to do so by approaching it in a different
+manner to that in which I did when I discovered it.
+
+If we take the contra-parallelogram of Mr.\ Hart, and
+bend the links at the four points which lie on the same
+straight line, or \textit{foci} as they are sometimes termed,
+\PG--File: 035.png---\******\**************\********\******\********\------
+through the same angle, the four points, instead of
+lying in the same straight line, will lie at the four angular
+points of a parallelogram of constant angles,---two the angle
+that the bars are bent through, and the other two their
+supplements---and of constant area, so that the product
+of two adjacent sides is constant.
+
+In \figref{16} the lettering is preserved as in \figref{12}, so
+that the way in which the apparatus is formed may be at
+once seen. The holes are taken in the middle of the links,
+\begin{figure*}[hbt]
+\Figure{16}{035}
+% [Illustration: Fig. 16.]
+\end{figure*}
+and the bending is through a right angle. The four holes
+$O~P~O'~C$ lie at the four corners of a right-angled parallelogram,
+and the product of any two adjacent sides, as for
+example $O~C\cdot O~P$, is constant. It follows that if $O$ be
+pivoted to the fixed point $O$ in \figref{6}, and $C$ be pivoted to
+the extremity of the extra link, $P$ will describe a straight
+line, not $P~M$, but one inclined to $P~M$ at an angle the same
+as the bars are bent through, \textit{i.e.}\ a right angle. Thus the
+\PG--File: 036.png---\******\**************\********\******\********\------
+straight line will be parallel to the line joining the fixed
+pivots $O$ and $Q$. This apparatus, which for simplicity I
+have described as formed of four straight links which are
+afterwards bent, is of course strictly speaking formed of
+four plane links, such as those employed in \figref{1}, on which
+the various points are taken. This explains the name
+given to it by Professor Sylvester, the ``\hypertarget{qap}{Quadruplane}.'' % spelling clear on scan; cf "quadriplane" below
+Its properties are not difficult to investigate, and when I
+point out to you that in \figref{16}, as in \figref{12}, $Ob$, $bC$ form
+half a ``spear-head,'' and $Oa$, $aP$ half a ``kite,'' you will
+very soon get to the bottom of it.
+
+I cannot leave this apparatus, in which my name is
+associated with that of Professor Sylvester, without expressing
+my deep gratitude for the kind interest which he took
+in my researches, and my regret that his departure for
+America to undertake the post of Professor in the new
+Johns Hopkins University has deprived me of one whose
+valuable suggestions and encouragement helped me much
+in my investigations.
+
+Before leaving the Peaucellier cell and its modifications,
+I must point out another important property they possess
+besides that of furnishing us with exact rectilinear motion.
+We have seen that our simplest linkwork enables us to
+describe a circle of any radius, and if we wished to describe
+one of ten miles' radius the proper course would be to have
+a ten-mile link, but as that would be, to say the least,
+cumbrous, it is satisfactory to know that we can effect our
+purpose with a much smaller apparatus. When the Peaucellier
+cell is mounted for the purpose of describing a
+straight line, as I told you, the distance between the fixed
+pivots must be the same as the length of the ``extra'' link.
+\PG--File: 037.png---\******\**************\********\******\********\------
+If this distance be not the same we shall not get straight
+lines described by the pencil, but circles. If the difference
+be slight the circles described will be of enormous magnitude,
+decreasing in size as the difference increases. If the
+distance $Q~O$, \figref{6}, be made greater than $Q~C$, the convexity
+of the portion of the circle described by the pencil
+(for if the circles are large it will of course be only a
+portion which is described) will be towards $O$, if less
+the concavity. To a mathematician, who knows that the
+inverse of a circle is a circle, this will be clear, but it may
+not be amiss to give here a short proof of the proposition.
+
+\begin{figure*}[hbt]
+\Figure{17}{038}
+% [Illustration: Fig. 17.]
+\end{figure*}
+
+In \figref{17} let the centres $Q$, $Q'$ of the two circles be at
+distances from $O$ proportional to the radii of the circles.
+If then $O~D~C~P~S$ be any straight line through $O$, $D~Q$
+will be parallel to $P~Q'$, and $C~Q$ to $S~Q'$, and $O~D$ will
+bear the same proportion to $O~P$ that $O~Q$ does to $O~Q'$.
+Now considering the proof we gave in connection with % Fig.\
+\figref{7}, it will be clear that the product $O~D\cdot O~C$ is constant,
+and therefore since $O~P$ bears a constant ratio to $O~D$,
+$O~P\cdot O~C$ is constant. That is if $O~C\cdot O~P$ is constant and
+$C$ describes a circle about $Q$, $P$ will describe one about $Q'$.
+Taking then $O$, $C$ and $P$ as the $O$, $C$ and $P$ of the Peaucellier
+cell in \figref{7}, we see how $P$ comes to describe a circle.
+
+It is hardly necessary for me to state the importance of
+the Peaucellier compass in the mechanical arts for drawing
+circles of large radius. Of course the various modifications
+of the ``cell'' I have described may all be employed for
+the purpose. The models exhibited by the Conservatoire
+and M.~Breguet are furnished with sliding pivots for the
+purpose of varying the distance between $O$ and $Q$, and
+thus getting circles of any radius.
+\PG--File: 038.png---\******\**************\********\******\********\------
+
+My attention was first called to these linkworks by the
+lecture of Professor Sylvester, to which I have referred.
+A passage in that lecture in which it was stated that there
+were probably other forms of seven-link parallel motions
+\PG--File: 039.png---\******\**************\********\******\********\------
+besides M. Peaucellier's, then the only one known, led me
+to investigate the subject, and I succeeded in obtaining
+some new parallel motions of an entirely different character
+to that of M. Peaucellier\Note{9}. I shall bring two of these
+to your notice, as the investigation of them will lead us to
+consider some other linkworks of importance.
+
+If I take two kites, one twice as big as the other, such
+that the long links of each are twice the length of the short
+ones, and make one long link of the small kite lie on
+a short one of the large, and a short one of the small on
+a long one of the large, and then amalgamate the coincident
+links, I shall get the linkage shown in \figref{18}.
+
+\begin{figure*}[hbt]
+\Figure{18}{039}
+% [Illustration: Fig. 18.]
+\end{figure*}
+
+The important property of this linkage is that, although
+we can by moving the links about, make the points $P$ and
+$P'$ approach to or recede from each other, the imaginary
+line joining them is always perpendicular to that drawn
+through the pivots on the bottom link $L~M$. It follows
+that if either of the pivots $P$ or $P'$ be fixed, and the link
+$L~M$ be made to move so as always to remain parallel to
+a fixed line, the other point will describe a straight line
+perpendicular to the fixed line. \figref{19} shows you the
+\begin{figure*}[hbt]
+\Figure{19}{040}
+% [Illustration: Fig.~19.]
+\end{figure*}
+parallel motion made by fixing $P'$. It is unnecessary for
+\PG--File: 040.png---\******\**************\********\******\******\--------
+me to point out how the parallelism of $L~M$ is preserved
+by adding the link $S~L$, it is obvious from the figure. The
+straight line which is described by the point $P$ is perpendicular
+to the line joining the two fixed pivots; we can, however,
+without increasing the number of links, make a point
+on the linkwork describe a straight line inclined to the line
+$S~P$ at any angle, or rather we can, by substituting for the
+straight link $P~C$ a plane piece, get a number of points on
+that piece moving in every direction.
+
+In \figref{20}, for simplicity, only the link $C~P'$ and the
+\begin{figure*}[hbt]
+\Figure{20}{041}
+% [Illustration: Fig.~20.]
+\end{figure*}
+new piece substituted for the link $P~C$ are shown. The
+new piece is circular and has holes pierced in it all at the
+same distance---the same as the lengths $P~C$ and $P'~C$---from
+$C$. Now we have seen from \figref{19} that $P$ moves in
+a vertical straight line, the distance $P~C$ in \figref{20} being
+the same as it was in \figref{19}; but from a well-known
+property of a circle, if $H$ be any one of the holes pierced in
+the piece, the angle $H~P'~P$ is constant, thus the straight
+line $H~P'$ is fixed in position, and $H$ moves along it; similarly
+all the other holes move along in straight lines passing
+through the fixed pivot $P'$, and we get straight line
+\PG--File: 041.png---\******\**************\********\******\******\--------
+motion distributed in all directions. This species of motion
+is called by Professor Sylvester ``tram-motion.'' It is
+worth noticing that the motion of the circular disc is the
+same as it would have been if the dotted circle on it rolled
+inside the large dotted circle; we have, in fact, White's
+parallel motion reproduced by linkwork. Of course, if we
+only require motion in one direction, we may cut away all
+the disc except a portion forming a bent arm containing $C$,
+$P$, and the point which moves in the required direction.
+
+The double kite of \figref{18} may be employed to form
+some other useful linkworks. It is often necessary to
+\begin{figure*}[hbt]
+\Figure{21}{042a}
+% [Illustration: Fig.~21.]
+\end{figure*}
+have, not a single point, but a whole piece moving so that
+all points on it move in straight lines. I may instance
+\PG--File: 042.png---\******\**************\********\******\******\--------
+the slide rests in lathes, traversing tables, punches,
+drills, drawbridges, etc. The double kite enables us
+to produce linkworks having this property. In the linkwork
+of \figref{21}, the construction of which will be at once
+\begin{figure*}[hbt]
+\Figure{22}{042b}
+% [Illustration: Fig.~22.]
+\end{figure*}
+appreciated if you understand the double kite, the horizontal
+link moves to and fro as if sliding in a fixed
+\PG--File: 043.png---\******\**************\********\******\******\--------
+horizontal straight tube.  This form would possibly be
+useful as a girder for a drawbridge.
+\begin{figure*}[p]
+\Figure{24}{044}
+% [Illustration: Fig.~24.]
+\end{figure*}
+
+{% warning: this section rather fragile
+% hardcoded parameters chosen to squish figure 23 onto the
+% same page as figure 22 and allow the full-page figure 24
+% to follow immediately (otherwise we get a logjam of
+% figures on subsequent pages)
+\intextsep=0pt % set figure tight inside text
+\begin{wrapfigure}[9]{r}{.4\textwidth}
+\Figure{23}{043}
+% [Illustration: Fig.~23.]
+\end{wrapfigure}
+In the linkwork of \figref{22}, which is another combination
+of two double kites, the vertical link moves so that all its
+points move in horizontal straight lines. There is a modification
+of this linkwork which will, I think, be found
+interesting. In the linkage in \figref{23}, which, if the thin
+links are removed, is a skeleton drawing of \figref{22}, % [** original lacks period after "Fig"]
+let
+the dotted links be taken away and the thin ones be inserted;
+we then get a linkage which has the same property
+as that in \figref{22}, but it is seen in its new form to be the
+ordinary double parallel ruler with three added links.
+\figref{24} is a figure of a double parallel ruler made on this
+plan with a slight modification. If the bottom ruler be
+held horizontal the top moves vertically up and down the
+board, having no lateral movement.
+
+}\begin{figure*}[hbt]
+\Figure{25}{045}
+% [Illustration: Fig.~25.]
+\end{figure*}
+While I am upon this sort of movement I may point out
+an \hyperlink{fig:25}{apparatus} exhibited in the Loan Collection by Professor
+\PG--File: 044.png---\******\**************\********\******\******\--------
+% [Illustration: Fig.~24.]
+\PG--File: 045.png---\******\**************\********\******\******\--------
+Tchebicheff, which bears a strong likeness to a complicated
+camp-stool, the seat of which has horizontal motion. The
+motion is not strictly rectilinear; the apparatus being---as
+will be seen by observing that the thin line in the figure
+is of invariable length, and a link might therefore be put
+where it is---a combination of two of the parallel motions
+of Professor Tchebicheff given in \figref{4}, with some links
+added to keep the seat parallel with the base. The
+variation of the upper plane from a strictly horizontal
+\PG--File: 046.png---\*******\**************\********\******\******\-------
+movement is therefore double that of the tracer in the
+simple parallel motion.
+
+\begin{figure*}[hbt]
+\Figure{26}{046}
+% [Illustration: Fig.~26.]
+\end{figure*}
+
+\figref{26} shows how a similar apparatus of much simpler
+construction, employing the Tchebicheff approximate parallel
+motion, can be made. The lengths of the links forming
+the parallel motion have been given before (\figref{4}). %[**F2: period added.]
+The
+distance between the pivots on the moving seat is half that
+between the fixed pivots, and the length of the remaining
+link is one-half that of the radial links.
+
+An \emph{exact} motion of the same description is shown in \figref{27}.
+\begin{figure*}[hbt]
+\Figure{27}{047}
+% [Illustration: Fig[**missing .] 27.]
+\end{figure*}
+$O$, $C$, $O'$, $P$ are the four \textit{foci} of the \hypertarget{qip}{quadriplane} shown % spelling clear on scan; cf "Quadruplane" above
+in the figure in which the links are bent through a right
+angle, so that $O~C\cdot O~P$ is constant, and $C~O~P$ a right
+angle. The focus $O$ is pivoted to a fixed point, and $C$ is
+made by means of the extra link $Q~C$ to move in a circle of
+which the radius $Q~C$ is equal to the pivot distance $O$
+\PG--File: 047.png---\*******\**************\********\******\******\-------
+$P$ consequently moves in a straight line parallel to $O~Q$, the
+five moving pieces thus far described constituting the
+Sylvester-Kempe parallel motion. To this are added the
+moving seat and the remaining link $R~O'$, the pivot distances
+of which, $P~R$ and $R~O'$, are equal to $O~Q$. The seat in consequence
+always remains parallel to $Q~O$, and as $P$ moves
+accurately in a horizontal straight line, every point on
+it will do so also. This apparatus might be used with
+advantage where a very smoothly-working traversing table
+is required.
+
+\begin{figure*}[hbt]
+\Figure{28}{048}
+% [Illustration: Fig.~28.]
+\end{figure*}
+\begin{figure*}[hbt]
+\Figure{29}{049}
+% [Illustration: Fig. 29[**missing .]]
+\end{figure*}
+
+I now come to the second of the parallel motions I said I
+would show you. If I take a kite and pivot the blunt end to
+the fixed base, and make the sharp end move up and down in
+a straight line, passing through the fixed pivot, the short
+links will rotate about the fixed pivot with equal velocities
+\PG--File: 048.png---\*******\**************\********\******\******\-------
+in opposite directions; and, conversely, if the links rotate
+with equal velocity in opposite directions, the path of the
+sharp end will be a straight line, and the same will hold
+good if instead of the short links being pivoted to the
+same point they are pivoted to different ones.
+
+To find a linkwork which should make two links rotate
+with equal velocities in opposite directions was one of the
+\PG--File: 049.png---\*******\**************\********\******\******\-------
+first problems I set myself to solve. There was no difficulty
+in making two links rotate with equal velocities in the same
+direction,---the ordinary parallelogrammatic linkwork employed
+in locomotive engines, composed of the engine, the two
+cranks, and the connecting rod, furnished that; and there
+was none in making two links rotate in opposite directions
+\PG--File: 050.png---\*******\**************\********\******\******\-------
+with \emph{varying} velocity; the contra-parallelogram gave that;
+but the required linkwork had to be discovered. After some
+trouble I succeeded in obtaining it by a combination of
+a large and small contra-parallelogram put together just as
+the two kites were in the linkage of \figref{18}. One contra-parallelogram
+is made twice as large as the other, and the
+long links of each are twice as long as the short\Note{10}.
+
+\begin{figure*}[hbt]
+\Figure{30}{050}
+% [Illustration: Fig.~30.]
+\end{figure*}
+\begin{figure*}[hbt]
+\Figure{31}{051}
+% [Illustration: Fig.~31.]
+\end{figure*}
+
+The linkworks in \hyperlink{fig:30}{Figs.\ 30} and \hyperlink{fig:31}{31} will, by considering
+the thin line drawn through the fixed pivots in each as a
+link, be seen to be formed by fixing different links of the
+same six-link linkage composed of two contra-parallelograms
+as just stated. The pointed links rotate with equal velocity
+in opposite directions, and thus, as shown in \figref{28}, at
+once give parallel motions. They can of course, however,
+be usefully employed for the mere purpose of reversing
+angular velocity\Note{11}.
+
+An extension of the linkage employed in these two last
+\PG--File: 051.png---\*******\**************\********\******\******\-------
+figures gives us an apparatus of considerable interest. If
+I take another linkage contra-parallelogram of half the
+size of the smaller one and fit it to the smaller exactly as
+I fitted the smaller to the larger, I get the eight-linkage of
+\begin{figure*}[hbt]
+\Figure{32}{052}
+% [Illustration: Fig.~32.]
+\end{figure*}
+\figref{32}. It has, you see, four pointed links radiating from
+a centre at equal angles; if I open out the two extreme
+\PG--File: 052.png---\*******\**************\********\******\******\-------
+ones to any desired angle, you will see that the two intermediate
+ones will exactly \emph{trisect the angle}. Thus the power
+we have had to call into operation in order to effect Euclid's
+first Postulate---linkages---enables us to solve a problem
+\PG--File: 053.png---\*******\**************\********\******\******\-------
+\begin{figure*}[hbt]
+\Figure{33}{053}
+% [Illustration: Fig.~33[**missing .]]
+\end{figure*}
+which has no ``geometrical'' solution. I could of course
+go on extending my linkage and get others which would
+divide an angle into any number of equal parts. It is obvious
+\PG--File: 054.png---\*******\**************\********\******\******\-------
+that these same linkages can also be employed as linkworks
+for doubling, trebling, etc., angular velocity\Note{12}.
+
+Another form of ``Isoklinostat''---for so the apparatus is
+termed by Professor Sylvester---was discovered by him. The
+construction is apparent from \figref{33}. It has the great
+advantage of being composed of links having only two
+pivot distances bearing any proportion to each other, but
+it has a larger number of links than the other, and as the
+opening out of the links is limited, it cannot be employed
+for multiplying angular motion.
+
+Subsequently to the publication of the paper which contained
+an account of these linkworks of mine of which I
+have been speaking, I pointed out in a paper read before
+the Royal Society\Note{13} that the parallel motions given there
+were, as well as those of M.~Peaucellier and Mr.~Hart, all
+particular cases of linkworks of a very general character,
+all of which depended on the employment of a linkage
+composed of two similar figures. I have not sufficient time,
+and I think the subject would not be sufficiently inviting
+on account of its mathematical character, to dwell on it
+here, so I will leave those in whom an interest in the
+question has been excited to consider the original paper.
+
+At this point the problem of the production of straight-line
+motion now stands, and I think you will be of opinion
+that we hardly, for practical purposes, want to go much
+farther into the theoretical part of the question. The
+results that have been obtained must now be left to the
+mechanician to deal with, if they are of any practical value.
+I have, as far as what I have undertaken to bring before
+you to-day is concerned, come to the end of my tether.
+I have shown you that we \emph{can} describe a straight line, and
+\PG--File: 055.png---\*******\**************\********\******\******\-------
+\emph{how} we can, and the consideration of the problem has led us
+to investigate some important pieces of apparatus. But I
+hope that this is not all. I hope that I have shown you (and
+your attention makes that hope a belief) that this new field
+of investigation is one possessing great interest and importance.
+Mathematicians have no doubt done much more
+than I have been able to show you to-day\Note{14}, but the unexplored
+fields are still vast, and the earnest investigator
+can hardly fail to make new discoveries. I hope therefore
+that you whose duty it is to extend the domain of science
+will not let the subject drop with the close of my lecture.
+\PG--File: 056.png---\*******\**************\********\******\******\-------
+% [Blank Page]
+\PG--File: 057.png---\*******\**************\********\******\******\-------
+
+\chapter*{}
+\subsection*{\protect\hypertarget{notes}{NOTES}.\protect\ForceBookmark{Notes}{notes}}
+
+{\small
+\NoteText{1} The hole through which the pencil passes can be made to describe
+a circle independently of any surface (see the latter part of Note~3),
+but when we wish to describe a circle or a given plane surface that
+surface must of course be assumed to be plane.
+
+\NoteText{2} ``But'' (it is carefully added) ``not a graduated one.'' By the
+use of a ruler with only two graduations, an angle can, as is well known,
+be readily trisected, thus---Let $RST$ be the angle, and let $PP'$ be the
+points where the graduations cut the edge of the ruler. Let $2RS=PP'$.
+Draw $RU$ parallel and $RV$ perpendicular to $ST$. Then if we fit the
+ruler to the figure $RSTUV$ so that the edge $PP'$ passes through $S$,
+$P$ lies on $RU$ and $P'$ on $RV$, $PP'$ trisects the angle $RST$. For if $Q$ be
+the middle point of $PP'$, and $RQ$ be joined, the angle $TSP=$ the angle
+$QPR=$ the angle $QRP=$ half the angle $RQS$, that is half the angle
+$RSQ$.
+
+This solution is of course not a ``geometrical'' one in the sense I
+have indicated, because a graduated ruler and the fitting process are
+employed. But does Euclid confine himself to his three Postulates of
+construction? Does he not use a graduated ruler and this fitting process?
+Is not the side $AB$ of the triangle $ABC$ in Book~I. Proposition
+4, graduated at $A$ and $B$, and are we not told to take it up and fit it
+on to $DE$?
+
+It seems difficult to see why Euclid employed the second Postulate---that
+which requires ``that a terminated straight line may be
+produced to any length in a straight line,''---or rather, why he did
+not put it among the propositions in the First Book as a problem. It is
+by no means difficult by a rigid adherence to Euclid's methods to find a
+point outside a terminated straight line which is in the same straight
+line with it, and to prove it to be so, without the employment of the
+second Postulate. That point can then, by the first Postulate, be
+\PG--File: 058.png---\********\**************\********\******\******\------
+joined to the extremity of the given straight line which is thus produced,
+and the process can be continued indefinitely, since by the third
+Postulate circles can be drawn with any centre and radius.
+
+\NoteText{3} It is important to notice that the fixed base to which the pivots
+are attached is really one link in the system. It would on that account
+be perhaps more scientific, in a general consideration of the subject, to
+commence by calling any combination of pieces (whether those pieces
+be cranks, beams, connecting-rods, or anything else) jointed or pivoted
+together, a ``\textit{linkage}.'' When the motion of the links is confined to
+one plane or to a number of parallel planes, the system is called
+a ``\textit{plane linkage}.'' (It will be seen that this lecture is confined
+to plane linkages; a few remarks about solid linkages will be found
+at the end of the note.) The motion of the links among themselves
+in a linkage may be determinate or not. When the motion is
+determinate the number of links must be even, and the linkage is
+said to be ``\textit{complete}.'' When the motion is not determinate the
+linkage is said to have 1, 2, 3, etc.\ degrees of freedom, according to the
+amount of liberty the links possess in their relative motion. These
+linkages may be termed ``\textit{primary},'' ``\textit{secondary},'' etc.\ linkages. Thus
+if we take the linkage composed of four links with two pivots on
+each, the motion of each link as regards the others is determinate, and
+the linkage is a ``\textit{complete linkage}.'' If one link be jointed in the
+middle the linkage has one degree of liberty and is a ``\textit{primary linkage}.''
+So by making fresh joints ``\textit{secondary}'' or ``\textit{tertiary},'' etc.\ linkages
+may be formed. These primary, etc.\ linkages may be formed in
+various other ways, but the example given will illustrate the reason
+for the nomenclature. When one link of a linkage is a fixed base the
+structure is called a ``\textit{linkwork}.'' Linkworks, like linkages, may be
+``\textit{primary},'' ``\textit{secondary},'' etc. A ``\textit{complete linkwork},'' \textit{i.e.}\ one in
+which the motion of every point on the moving part of the structure is
+definite, is called a ``\textit{link-motion}.'' The various ``grams'' described by
+these link-motions are very difficult to deal with. I have shown, in a
+paper in the \textit{Proceedings of the London Mathematical Society}, 1876,
+that a link-motion can be found to describe any given algebraic curve,
+but the converse problem, ``Given the link-motion, what is the curve?''
+is one towards the solution of which but little way has been made; and
+the ``tricircular trinodal sextics,'' which are the ``grams'' of the simple
+three-piece motion, are still under the consideration of some of our
+most eminent mathematicians.
+
+Taking them in their greatest generality, the theoretically simplest
+\PG--File: 059.png---\*******\**************\********\******\******\-------
+form of link-motion is not the flat circle-producing link, but a solid
+link pivoted to a fixed centre, and capable of motion in all directions
+about that centre, so that all points on it describe spheres in space;
+and the most general form a number of such links pivoted together,
+forming a structure the various points on which describe surfaces. If
+two simple solid links, turning about two fixed centres, are pivoted
+together at a common point, that point will describe a circle independently
+of any plane surface, the other points on the links describing
+portions of spheres. The form of pivot which would have to be
+adopted in solid linkages would be the ball-and-socket joint, so that the
+links could not only move about round the fixed centre, but rotate
+about any imaginary axis through that centre. It is obvious that it
+would be impossible to construct any joint which would give the links
+perfect freedom of motion, as the fixed centre about which any link
+turned must be fastened to a fixed base in some way, and whatever
+means were adopted would interfere with the link in some portion of
+its path. This is not so in plane link-motions. The subject of solid
+linkages has been but little considered. Hooke's joint may be mentioned
+as an example of a solid link-motion. (See also Note~11.)
+
+\NoteText{4} I have been more than once asked to try and get rid of the
+objectionable term ``parallel motion.'' I do not know how it came to
+be employed, and it certainly does not express what is intended. The
+apparatus does not give ``parallel motion,'' but approximate ``rectilinear
+motion.'' The expression, however, has now become crystallised,
+and I for one cannot undertake to find a solvent.
+
+\NoteText{5} See the \textit{Proceedings of the Royal Institution}, 1874.
+
+\NoteText{6} This paper is printed \textit{in extenso} in the \textit{Cambridge Messenger of
+Mathematics}, 1875, vol.~iv., pp.~82--116, and contains much valuable
+matter about the mathematical part of the subject.
+
+\NoteText{7} The interchange of a radial and traversing bar converts Watt's
+Parallel Motion into the Grasshopper Parallel Motion. The same
+change shows us that the curves traced by the linkwork formed by
+fixing one bar of a ``kite'' are the same as those traced by the linkwork
+formed by fixing one bar of a contra-parallelogram. This is
+interesting as showing that there is really only one case in which the
+sextic curve, the ``gram'' of three-bar motion, breaks up into a circle
+and a quartic.
+
+\NoteText{8} For a full account of this and the piece of apparatus next
+described, see \textit{Nature}, vol.~xii., pp.\ 168 and 214.
+\PG--File: 060.png---\**********\**************\********\******\******\----
+
+\NoteText{9} See the \textit{Messenger of Mathematics}, ``On Some New Linkages,''
+1875, vol.~iv., p.~121.
+
+\NoteText{10} A reference to the paper referred to in the last note will show
+that it is not necessary that the small kites and contra-parallelograms
+should be half the size of the large ones, or that the long links should
+be double the short; the particular lengths are chosen for ease of
+description in lecturing.
+
+\NoteText{11} By an arrangement of Hooke's joints, pure solid linkages, we
+can make two axes rotate with equal velocities in contrary directions
+(See Willis's \textit{Principles of Mechanism}, 2nd~Ed.\ sec.~516, p.~456), and
+therefore produce an exact parallel motion.
+
+\NoteText{12} The ``kite'' and the ``contra-parallelogram'' are subject to the
+inconvenience (mathematically very important) of having ``dead
+points.'' These can be, however, readily got rid of by employing %[**missing g][F2: added]
+pins and gabs in the manner pointed out by Professor Reuleaux. (See
+Reuleaux's \textit{Kinematics of Machinery}, translated by Professor Kennedy,
+Macmillan, pp.~290--294.)
+
+\NoteText{13} ``Proceedings of the Royal Society'', No.~163, 1875, ``On a General
+Method of Obtaining Exact Rectilinear Motion by Linkwork.'' I take
+this opportunity of pointing out that the results there arrived at may
+be greatly extended from the following simple consideration.
+% [Illustration: Fig.~34.]
+
+If the straight link $O~B$ makes any angle $D$ with the straight link
+$O~A$, and if instead of employing the straight links we employ the pieces
+$A'OA$, $B'OB$, and if the angle $A'OA$ equals the angle $B'OB$, then the
+\PG--File: 061.png---\**********\**************\********\******\******\----
+angle $B'OA'$ equals $D$. The recognition of this very obvious fact will
+enable us to derive the Sylvester-Kempe parallel motion from that of
+Mr.~Hart.
+$$\Figure{34}{060}$$
+
+\NoteText{14} In addition to the authorities already mentioned, the following
+may be referred to by those who desire to know more about the mathematical
+part of the subject of ``Linkages.'' ``\textit{Sur les Systèmes de Tiges
+Articulées},'' par M.~V. Liguine, in the \textit{Nouvelles Annales}, December,
+1875, pp.~520--560.
+
+Two papers ``\textit{On Three-bar Motion}'' by Professor Cayley and Mr.\
+S.~Roberts, in the \textit{Proceedings of the London Mathematical Society},
+1876, vol.~vii., pp.~14 and 136. Other short papers in the \textit{Proceedings
+of the London Mathematical Society}, vols.~v., vi., vii., and the
+\textit{Messenger of Mathematics}, vols.~iv.\ and v. % scan clearly has "Vols" but for consistency we use "vols"
+
+}\iffalse
+\PG--File: 062.png---\**********\**************\********\***\******\-------
+
+\begin{center}
+{\footnotesize
+R. CLAY, SONS, AND TAYLOR, PRINTERS,\\
+BREAD STREET HILL, QUEEN VICTORIA STREET.
+}
+\end{center}
+
+\fi
+
+% we *do* want the licence to start recto, to emphasise it is an addition
+\cleartorecto
+\pagestyle{licence}
+\setlength\parskip{0pt}\raggedbottom
+\hypertarget{PGlicence}{ }
+\ForceBookmark{Licensing Information}{PGlicence}\par
+\begin{PGboilerplate}
+End of Project Gutenberg's How to Draw a Straight Line, by A.B. Kempe
+
+*** END OF THIS PROJECT GUTENBERG EBOOK HOW TO DRAW A STRAIGHT LINE ***
+
+***** This file should be named 25155-pdf.pdf or 25155-pdf.zip *****
+This and all associated files of various formats will be found in:
+        http://www.gutenberg.org/2/5/1/5/25155/
+
+Produced by Joshua Hutchinson, David Wilson and the Online
+Distributed Proofreading Team at http://www.pgdp.net (This
+file was produced from images from the Cornell University
+Library: Historical Mathematics Monographs collection.)
+
+
+Updated editions will replace the previous one--the old editions
+will be renamed.
+
+Creating the works from public domain print editions means that no
+one owns a United States copyright in these works, so the Foundation
+(and you!) can copy and distribute it in the United States without
+permission and without paying copyright royalties.  Special rules,
+set forth in the General Terms of Use part of this license, apply to
+copying and distributing Project Gutenberg-tm electronic works to
+protect the PROJECT GUTENBERG-tm concept and trademark.  Project
+Gutenberg is a registered trademark, and may not be used if you
+charge for the eBooks, unless you receive specific permission.  If you
+do not charge anything for copies of this eBook, complying with the
+rules is very easy.  You may use this eBook for nearly any purpose
+such as creation of derivative works, reports, performances and
+research.  They may be modified and printed and given away--you may do
+practically ANYTHING with public domain eBooks.  Redistribution is
+subject to the trademark license, especially commercial
+redistribution.
+
+
+
+*** START: FULL LICENSE ***
+
+THE FULL PROJECT GUTENBERG LICENSE
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg-tm mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase "Project
+Gutenberg"), you agree to comply with all the terms of the Full Project
+Gutenberg-tm License (available with this file or online at
+http://gutenberg.org/license).
+
+
+Section 1.  General Terms of Use and Redistributing Project Gutenberg-tm
+electronic works
+
+1.A.  By reading or using any part of this Project Gutenberg-tm
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement.  If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or destroy
+all copies of Project Gutenberg-tm electronic works in your possession.
+If you paid a fee for obtaining a copy of or access to a Project
+Gutenberg-tm electronic work and you do not agree to be bound by the
+terms of this agreement, you may obtain a refund from the person or
+entity to whom you paid the fee as set forth in paragraph 1.E.8.
+
+1.B.  "Project Gutenberg" is a registered trademark.  It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement.  There are a few
+things that you can do with most Project Gutenberg-tm electronic works
+even without complying with the full terms of this agreement.  See
+paragraph 1.C below.  There are a lot of things you can do with Project
+Gutenberg-tm electronic works if you follow the terms of this agreement
+and help preserve free future access to Project Gutenberg-tm electronic
+works.  See paragraph 1.E below.
+
+1.C.  The Project Gutenberg Literary Archive Foundation ("the Foundation"
+or PGLAF), owns a compilation copyright in the collection of Project
+Gutenberg-tm electronic works.  Nearly all the individual works in the
+collection are in the public domain in the United States.  If an
+individual work is in the public domain in the United States and you are
+located in the United States, we do not claim a right to prevent you from
+copying, distributing, performing, displaying or creating derivative
+works based on the work as long as all references to Project Gutenberg
+are removed.  Of course, we hope that you will support the Project
+Gutenberg-tm mission of promoting free access to electronic works by
+freely sharing Project Gutenberg-tm works in compliance with the terms of
+this agreement for keeping the Project Gutenberg-tm name associated with
+the work.  You can easily comply with the terms of this agreement by
+keeping this work in the same format with its attached full Project
+Gutenberg-tm License when you share it without charge with others.
+
+1.D.  The copyright laws of the place where you are located also govern
+what you can do with this work.  Copyright laws in most countries are in
+a constant state of change.  If you are outside the United States, check
+the laws of your country in addition to the terms of this agreement
+before downloading, copying, displaying, performing, distributing or
+creating derivative works based on this work or any other Project
+Gutenberg-tm work.  The Foundation makes no representations concerning
+the copyright status of any work in any country outside the United
+States.
+
+1.E.  Unless you have removed all references to Project Gutenberg:
+
+1.E.1.  The following sentence, with active links to, or other immediate
+access to, the full Project Gutenberg-tm License must appear prominently
+whenever any copy of a Project Gutenberg-tm work (any work on which the
+phrase "Project Gutenberg" appears, or with which the phrase "Project
+Gutenberg" is associated) is accessed, displayed, performed, viewed,
+copied or distributed:
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+1.E.2.  If an individual Project Gutenberg-tm electronic work is derived
+from the public domain (does not contain a notice indicating that it is
+posted with permission of the copyright holder), the work can be copied
+and distributed to anyone in the United States without paying any fees
+or charges.  If you are redistributing or providing access to a work
+with the phrase "Project Gutenberg" associated with or appearing on the
+work, you must comply either with the requirements of paragraphs 1.E.1
+through 1.E.7 or obtain permission for the use of the work and the
+Project Gutenberg-tm trademark as set forth in paragraphs 1.E.8 or
+1.E.9.
+
+1.E.3.  If an individual Project Gutenberg-tm electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any additional
+terms imposed by the copyright holder.  Additional terms will be linked
+to the Project Gutenberg-tm License for all works posted with the
+permission of the copyright holder found at the beginning of this work.
+
+1.E.4.  Do not unlink or detach or remove the full Project Gutenberg-tm
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg-tm.
+
+1.E.5.  Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg-tm License.
+
+1.E.6.  You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including any
+word processing or hypertext form.  However, if you provide access to or
+distribute copies of a Project Gutenberg-tm work in a format other than
+"Plain Vanilla ASCII" or other format used in the official version
+posted on the official Project Gutenberg-tm web site (www.gutenberg.org),
+you must, at no additional cost, fee or expense to the user, provide a
+copy, a means of exporting a copy, or a means of obtaining a copy upon
+request, of the work in its original "Plain Vanilla ASCII" or other
+form.  Any alternate format must include the full Project Gutenberg-tm
+License as specified in paragraph 1.E.1.
+
+1.E.7.  Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg-tm works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8.  You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg-tm electronic works provided
+that
+
+- You pay a royalty fee of 20% of the gross profits you derive from
+     the use of Project Gutenberg-tm works calculated using the method
+     you already use to calculate your applicable taxes.  The fee is
+     owed to the owner of the Project Gutenberg-tm trademark, but he
+     has agreed to donate royalties under this paragraph to the
+     Project Gutenberg Literary Archive Foundation.  Royalty payments
+     must be paid within 60 days following each date on which you
+     prepare (or are legally required to prepare) your periodic tax
+     returns.  Royalty payments should be clearly marked as such and
+     sent to the Project Gutenberg Literary Archive Foundation at the
+     address specified in Section 4, "Information about donations to
+     the Project Gutenberg Literary Archive Foundation."
+
+- You provide a full refund of any money paid by a user who notifies
+     you in writing (or by e-mail) within 30 days of receipt that s/he
+     does not agree to the terms of the full Project Gutenberg-tm
+     License.  You must require such a user to return or
+     destroy all copies of the works possessed in a physical medium
+     and discontinue all use of and all access to other copies of
+     Project Gutenberg-tm works.
+
+- You provide, in accordance with paragraph 1.F.3, a full refund of any
+     money paid for a work or a replacement copy, if a defect in the
+     electronic work is discovered and reported to you within 90 days
+     of receipt of the work.
+
+- You comply with all other terms of this agreement for free
+     distribution of Project Gutenberg-tm works.
+
+1.E.9.  If you wish to charge a fee or distribute a Project Gutenberg-tm
+electronic work or group of works on different terms than are set
+forth in this agreement, you must obtain permission in writing from
+both the Project Gutenberg Literary Archive Foundation and Michael
+Hart, the owner of the Project Gutenberg-tm trademark.  Contact the
+Foundation as set forth in Section 3 below.
+
+1.F.
+
+1.F.1.  Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+public domain works in creating the Project Gutenberg-tm
+collection.  Despite these efforts, Project Gutenberg-tm electronic
+works, and the medium on which they may be stored, may contain
+"Defects," such as, but not limited to, incomplete, inaccurate or
+corrupt data, transcription errors, a copyright or other intellectual
+property infringement, a defective or damaged disk or other medium, a
+computer virus, or computer codes that damage or cannot be read by
+your equipment.
+
+1.F.2.  LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+of Replacement or Refund" described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg-tm trademark, and any other party distributing a Project
+Gutenberg-tm electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees.  YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH F3.  YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3.  LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from.  If you
+received the work on a physical medium, you must return the medium with
+your written explanation.  The person or entity that provided you with
+the defective work may elect to provide a replacement copy in lieu of a
+refund.  If you received the work electronically, the person or entity
+providing it to you may choose to give you a second opportunity to
+receive the work electronically in lieu of a refund.  If the second copy
+is also defective, you may demand a refund in writing without further
+opportunities to fix the problem.
+
+1.F.4.  Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you 'AS-IS' WITH NO OTHER
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+WARRANTIES OF MERCHANTIBILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5.  Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of damages.
+If any disclaimer or limitation set forth in this agreement violates the
+law of the state applicable to this agreement, the agreement shall be
+interpreted to make the maximum disclaimer or limitation permitted by
+the applicable state law.  The invalidity or unenforceability of any
+provision of this agreement shall not void the remaining provisions.
+
+1.F.6.  INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg-tm electronic works in accordance
+with this agreement, and any volunteers associated with the production,
+promotion and distribution of Project Gutenberg-tm electronic works,
+harmless from all liability, costs and expenses, including legal fees,
+that arise directly or indirectly from any of the following which you do
+or cause to occur: (a) distribution of this or any Project Gutenberg-tm
+work, (b) alteration, modification, or additions or deletions to any
+Project Gutenberg-tm work, and (c) any Defect you cause.
+
+
+Section  2.  Information about the Mission of Project Gutenberg-tm
+
+Project Gutenberg-tm is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of computers
+including obsolete, old, middle-aged and new computers.  It exists
+because of the efforts of hundreds of volunteers and donations from
+people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need, is critical to reaching Project Gutenberg-tm's
+goals and ensuring that the Project Gutenberg-tm collection will
+remain freely available for generations to come.  In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg-tm and future generations.
+To learn more about the Project Gutenberg Literary Archive Foundation
+and how your efforts and donations can help, see Sections 3 and 4
+and the Foundation web page at http://www.pglaf.org.
+
+
+Section 3.  Information about the Project Gutenberg Literary Archive
+Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service.  The Foundation's EIN or federal tax identification
+number is 64-6221541.  Its 501(c)(3) letter is posted at
+http://pglaf.org/fundraising.  Contributions to the Project Gutenberg
+Literary Archive Foundation are tax deductible to the full extent
+permitted by U.S. federal laws and your state's laws.
+
+The Foundation's principal office is located at 4557 Melan Dr. S.
+Fairbanks, AK, 99712., but its volunteers and employees are scattered
+throughout numerous locations.  Its business office is located at
+809 North 1500 West, Salt Lake City, UT 84116, (801) 596-1887, email
+business@pglaf.org.  Email contact links and up to date contact
+information can be found at the Foundation's web site and official
+page at http://pglaf.org
+
+For additional contact information:
+     Dr. Gregory B. Newby
+     Chief Executive and Director
+     gbnewby@pglaf.org
+
+
+Section 4.  Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg-tm depends upon and cannot survive without wide
+spread public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine readable form accessible by the widest
+array of equipment including outdated equipment.  Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States.  Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements.  We do not solicit donations in locations
+where we have not received written confirmation of compliance.  To
+SEND DONATIONS or determine the status of compliance for any
+particular state visit http://pglaf.org
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States.  U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg Web pages for current donation
+methods and addresses.  Donations are accepted in a number of other
+ways including checks, online payments and credit card donations.
+To donate, please visit: http://pglaf.org/donate
+
+
+Section 5.  General Information About Project Gutenberg-tm electronic
+works.
+
+Professor Michael S. Hart is the originator of the Project Gutenberg-tm
+concept of a library of electronic works that could be freely shared
+with anyone.  For thirty years, he produced and distributed Project
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+
+
+Project Gutenberg-tm eBooks are often created from several printed
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+keep eBooks in compliance with any particular paper edition.
+
+
+Most people start at our Web site which has the main PG search facility:
+
+     http://www.gutenberg.org
+
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
+\end{PGboilerplate}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+%                                                                         %
+% End of Project Gutenberg's How to Draw a Straight Line, by A.B. Kempe   %
+%                                                                         %
+% *** END OF THIS PROJECT GUTENBERG EBOOK HOW TO DRAW A STRAIGHT LINE *** %
+%                                                                         %
+% ***** This file should be named 25155-t.tex or 25155-t.zip *****        %
+% This and all associated files of various formats will be found in:      %
+%         http://www.gutenberg.org/2/5/1/5/25155/                         %
+%                                                                         %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+
+\end{document}
+
+### lprep configuration ###
+$PageSeparator = qr/^\\PGx?-/;
+@ControlwordReplace = (
+  ['\\dotsc', '...'],
+                      );
+@ControlwordArguments = (
+  ['\\Note', 1, 1, ' (', ')'],
+  ['\\figref', 1, 1, 'Fig.~', ''],
+  ['\\ForceBookmark', 1, 0, '', '', 1, 0, '', ''],
+                        );
+
+$CustomClean = 'print "\\nCustom cleaning in progress...";
+my $cline = 0;
+while ($cline <=$#file) {
+  $file[$cline] =~ s/\\|.*$//g; # strip comments in PGboilerplate
+  $cline++
+}
+print "done\\n";';
+
+###
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=pdflatex 2007.10.4)  24 APR 2008 09:07
+entering extended mode
+**25155-t.tex
+(./25155-t.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
+\PGheader=\toks14
+(/usr/share/texmf-tetex/tex/latex/memoir/memoir.cls
+Document Class: memoir 2004/04/05 v1.61 configurable document class
+\onelineskip=\skip41
+\lxvchars=\skip42
+\xlvchars=\skip43
+\@memcnta=\count79
+\stockheight=\skip44
+\stockwidth=\skip45
+\trimtop=\skip46
+\trimedge=\skip47
+(/usr/share/texmf-tetex/tex/latex/memoir/mem12.clo
+File: mem12.clo 2004/03/12 v0.3 memoir class 12pt size option
+)
+\spinemargin=\skip48
+\foremargin=\skip49
+\uppermargin=\skip50
+\lowermargin=\skip51
+\headdrop=\skip52
+\normalrulethickness=\skip53
+\headwidth=\skip54
+\c@storedpagenumber=\count80
+\thanksmarkwidth=\skip55
+\thanksmarksep=\skip56
+\droptitle=\skip57
+\abstitleskip=\skip58
+\absleftindent=\skip59
+\absrightindent=\skip60
+\absparindent=\skip61
+\absparsep=\skip62
+\c@part=\count81
+\c@chapter=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\beforechapskip=\skip63
+\midchapskip=\skip64
+\afterchapskip=\skip65
+\chapindent=\skip66
+\bottomsectionskip=\skip67
+\secindent=\skip68
+\beforesecskip=\skip69
+\aftersecskip=\skip70
+\subsecindent=\skip71
+\beforesubsecskip=\skip72
+\aftersubsecskip=\skip73
+\subsubsecindent=\skip74
+\beforesubsubsecskip=\skip75
+\aftersubsubsecskip=\skip76
+\paraindent=\skip77
+\beforeparaskip=\skip78
+\afterparaskip=\skip79
+\subparaindent=\skip80
+\beforesubparaskip=\skip81
+\aftersubparaskip=\skip82
+\pfbreakskip=\skip83
+\c@@ppsavesec=\count88
+\c@@ppsaveapp=\count89
+\ragrparindent=\dimen102
+\parsepi=\skip84
+\topsepi=\skip85
+\itemsepi=\skip86
+\parsepii=\skip87
+\topsepii=\skip88
+\topsepiii=\skip89
+\m@msavetopsep=\skip90
+\m@msavepartopsep=\skip91
+\@enLab=\toks15
+\c@vslineno=\count90
+\c@poemline=\count91
+\c@modulo@vs=\count92
+\vleftskip=\skip92
+\vrightskip=\skip93
+\stanzaskip=\skip94
+\versewidth=\skip95
+\vgap=\skip96
+\vindent=\skip97
+\c@verse=\count93
+\c@chrsinstr=\count94
+\beforepoemtitleskip=\skip98
+\afterpoemtitleskip=\skip99
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks16
+\extratabsurround=\skip100
+\backup@length=\skip101
+\TX@col@width=\dimen105
+\TX@old@table=\dimen106
+\TX@old@col=\dimen107
+\TX@target=\dimen108
+\TX@delta=\dimen109
+\TX@cols=\count95
+\TX@ftn=\toks17
+\heavyrulewidth=\dimen110
+\lightrulewidth=\dimen111
+\cmidrulewidth=\dimen112
+\belowrulesep=\dimen113
+\belowbottomsep=\dimen114
+\aboverulesep=\dimen115
+\abovetopsep=\dimen116
+\cmidrulesep=\dimen117
+\cmidrulekern=\dimen118
+\defaultaddspace=\dimen119
+\@cmidla=\count96
+\@cmidlb=\count97
+\@aboverulesep=\dimen120
+\@belowrulesep=\dimen121
+\@thisruleclass=\count98
+\@lastruleclass=\count99
+\@thisrulewidth=\dimen122
+\ctableftskip=\skip102
+\ctabrightskip=\skip103
+\abovecolumnspenalty=\count100
+\@linestogo=\count101
+\@cellstogo=\count102
+\@cellsincolumn=\count103
+\crtok=\toks18
+\@mincolumnwidth=\dimen123
+\c@newflo@tctr=\count104
+\@contcwidth=\skip104
+\@contindw=\skip105
+\abovecaptionskip=\skip106
+\belowcaptionskip=\skip107
+\subfloattopskip=\skip108
+\subfloatcapskip=\skip109
+\subfloatcaptopadj=\skip110
+\subfloatbottomskip=\skip111
+\subfloatlabelskip=\skip112
+\subfloatcapmargin=\dimen124
+\c@@contsubnum=\count105
+\beforeepigraphskip=\skip113
+\afterepigraphskip=\skip114
+\epigraphwidth=\skip115
+\epigraphrule=\skip116
+LaTeX Info: Redefining \emph on input line 4419.
+LaTeX Info: Redefining \em on input line 4420.
+\tocentryskip=\skip117
+\tocbaseline=\skip118
+\cftparskip=\skip119
+\cftbeforepartskip=\skip120
+\cftpartindent=\skip121
+\cftpartnumwidth=\skip122
+\cftbeforechapterskip=\skip123
+\cftchapterindent=\skip124
+\cftchapternumwidth=\skip125
+\cftbeforesectionskip=\skip126
+\cftsectionindent=\skip127
+\cftsectionnumwidth=\skip128
+\cftbeforesubsectionskip=\skip129
+\cftsubsectionindent=\skip130
+\cftsubsectionnumwidth=\skip131
+\cftbeforesubsubsectionskip=\skip132
+\cftsubsubsectionindent=\skip133
+\cftsubsubsectionnumwidth=\skip134
+\cftbeforeparagraphskip=\skip135
+\cftparagraphindent=\skip136
+\cftparagraphnumwidth=\skip137
+\cftbeforesubparagraphskip=\skip138
+\cftsubparagraphindent=\skip139
+\cftsubparagraphnumwidth=\skip140
+\c@maxsecnumdepth=\count106
+\bibindent=\dimen125
+\bibitemsep=\skip141
+\indexcolsep=\skip142
+\indexrule=\skip143
+\indexmarkstyle=\toks19
+\@indexbox=\insert233
+\sideparvshift=\skip144
+\sideins=\insert232
+\sidebarhsep=\skip145
+\sidebarvsep=\skip146
+\sidebarwidth=\skip147
+\footmarkwidth=\skip148
+\footmarksep=\skip149
+\footparindent=\skip150
+\footinsdim=\skip151
+\footinsv@r=\insert231
+\@mpfootinsv@r=\insert230
+\m@m@k=\count107
+\m@m@h=\dimen126
+\m@mipn@skip=\skip152
+\c@sheetsequence=\count108
+\c@lastsheet=\count109
+\c@lastpage=\count110
+\every@verbatim=\toks20
+\afterevery@verbatim=\toks21
+\verbatim@line=\toks22
+\tab@position=\count111
+\verbatim@in@stream=\read1
+\verbatimindent=\skip153
+\verbatim@out=\write3
+\bvboxsep=\skip154
+\c@bvlinectr=\count112
+\bvnumlength=\skip155
+\FrameRule=\dimen127
+\FrameSep=\dimen128
+\c@cp@cntr=\count113
+LaTeX Info: Redefining \: on input line 7541.
+LaTeX Info: Redefining \! on input line 7543.
+\c@ism@mctr=\count114
+\c@xsm@mctr=\count115
+\c@csm@mctr=\count116
+\c@ksm@mctr=\count117
+\c@xksm@mctr=\count118
+\c@cksm@mctr=\count119
+\c@msm@mctr=\count120
+\c@xmsm@mctr=\count121
+\c@cmsm@mctr=\count122
+\c@bsm@mctr=\count123
+\c@workm@mctr=\count124
+\c@figure=\count125
+\c@lofdepth=\count126
+\c@lofdepth=\count126
+\cftbeforefigureskip=\skip156
+\cftfigureindent=\skip157
+\cftfigurenumwidth=\skip158
+\c@table=\count126
+\c@lotdepth=\count127
+\c@lotdepth=\count127
+\cftbeforetableskip=\skip159
+\cfttableindent=\skip160
+\cfttablenumwidth=\skip161
+(/usr/share/texmf-tetex/tex/latex/memoir/mempatch.sty
+File: mempatch.sty 2005/02/01 v3.5 Patches for memoir class v1.61
+\abs@leftindent=\dimen129
+LaTeX Info: Redefining \em on input line 142.
+LaTeX Info: Redefining \em on input line 384.
+LaTeX Info: Redefining \emph on input line 392.
+))
+
+LaTeX Warning: You have requested, on input line 111, version
+               `2005/09/25' of document class memoir,
+               but only version
+               `2004/04/05 v1.61 configurable document class'
+               is available.
+
+
+******************************************************
+Stock height and width: 654.41338pt by 423.94606pt
+Top and edge trims: 0.0pt and 0.0pt
+Page height and width: 654.41338pt by 423.94606pt
+Text height and width: 523.53055pt by 312.0pt
+Spine and edge margins: 51.21504pt and 59.75095pt
+Upper and lower margins: 59.75095pt and 71.13188pt
+Headheight and headsep: 14.0pt and 14.0pt
+Footskip: 17.07182pt
+Columnsep and columnseprule: 10.0pt and 0.0pt
+Marginparsep and marginparwidth: 7.0pt and 102.0pt
+******************************************************
+
+LaTeX Info: Redefining \ttfamily on input line 130.
+(/usr/share/texmf-tetex/tex/latex/base/inputenc.sty
+Package: inputenc 2004/02/05 v1.0d Input encoding file
+(/usr/share/texmf-tetex/tex/latex/base/latin1.def
+File: latin1.def 2004/02/05 v1.0d Input encoding file
+))
+
+LaTeX Warning: You have requested, on input line 140, version
+               `2006/05/05' of package inputenc,
+               but only version
+               `2004/02/05 v1.0d Input encoding file'
+               is available.
+
+(/usr/share/texmf-tetex/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip162
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-tetex/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+(/usr/share/texmf-tetex/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks23
+\ex@=\dimen130
+)) (/usr/share/texmf-tetex/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen131
+) (/usr/share/texmf-tetex/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count127
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count128
+\leftroot@=\count129
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count130
+\DOTSCASE@=\count131
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen132
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count132
+\c@MaxMatrixCols=\count133
+\dotsspace@=\muskip10
+\c@parentequation=\count134
+\dspbrk@lvl=\count135
+\tag@help=\toks24
+\row@=\count136
+\column@=\count137
+\maxfields@=\count138
+\andhelp@=\toks25
+\eqnshift@=\dimen133
+\alignsep@=\dimen134
+\tagshift@=\dimen135
+\tagwidth@=\dimen136
+\totwidth@=\dimen137
+\lineht@=\dimen138
+\@envbody=\toks26
+\multlinegap=\skip163
+\multlinetaggap=\skip164
+\mathdisplay@stack=\toks27
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+) (/usr/share/texmf-tetex/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks28
+\SOUL@lasttoken=\toks29
+\SOUL@cmds=\toks30
+\SOUL@buffer=\toks31
+\SOUL@token=\toks32
+\SOUL@spaceskip=\skip165
+\SOUL@ttwidth=\dimen139
+\SOUL@uldp=\dimen140
+\SOUL@ulht=\dimen141
+) (/usr/share/texmf-tetex/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+) (/usr/share/texmf-tetex/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf-tetex/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks33
+) (/usr/share/texmf-tetex/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf-tetex/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/usr/share/texmf-tetex/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+(/usr/share/texmf-tetex/tex/latex/graphics/pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count139
+))
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+)
+
+***
+*** Important Note: this document comes with PNG and PDF graphics,
+*** so make sure you use an appropriate workflow!
+*** 
+
+(/usr/share/texmf-tetex/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen144
+\WF@size=\dimen145
+\c@WF@wrappedlines=\count140
+\WF@box=\box28
+\WF@everypar=\toks34
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/share/texmf-tetex/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2003/11/30 v6.74m Hypertext links for LaTeX
+\@linkdim=\dimen146
+\Hy@linkcounter=\count141
+\Hy@pagecounter=\count142
+(/usr/share/texmf-tetex/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2003/11/30 v6.74m Hyperref: PDFDocEncoding definition (HO)
+) (/usr/share/texmf-tetex/tex/latex/hyperref/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive and teTeX
+)
+Package hyperref Info: Option `draft' set `true' on input line 1830.
+Package hyperref Info: Option `colorlinks' set `true' on input line 1830.
+Package hyperref Info: Hyper figures OFF on input line 1880.
+Package hyperref Info: Link nesting OFF on input line 1885.
+Package hyperref Info: Hyper index ON on input line 1888.
+Package hyperref Info: Plain pages ON on input line 1893.
+Package hyperref Info: Backreferencing OFF on input line 1900.
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 2004.
+(/usr/share/texmf-tetex/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2004/03/15  ver 3.1  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2143.
+\Fld@menulength=\count143
+\Field@Width=\dimen147
+\Fld@charsize=\dimen148
+\Choice@toks=\toks35
+\Field@toks=\toks36
+Package hyperref Info: Hyper figures OFF on input line 2618.
+Package hyperref Info: Link nesting OFF on input line 2623.
+Package hyperref Info: Hyper index ON on input line 2626.
+Package hyperref Info: backreferencing OFF on input line 2633.
+Package hyperref Info: Link coloring ON on input line 2636.
+\c@Item=\count144
+)
+*hyperref using default driver hpdftex*
+(/usr/share/texmf-tetex/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2003/11/30 v6.74m Hyperref driver for pdfTeX
+(/usr/share/texmf-tetex/tex/latex/psnfss/pifont.sty
+Package: pifont 2004/09/15 PSNFSS-v9.2 Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+(/usr/share/texmf-tetex/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+(/usr/share/texmf-tetex/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\Fld@listcount=\count145
+\@outlinefile=\write4
+) (/usr/share/texmf-tetex/tex/latex/memoir/memhfixc.sty
+Package: memhfixc 2004/05/13 v1.6 package fixes for memoir class
+)
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 300
+.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 300.
+Package hyperref Info: Option `linktocpage' set `false' on input line 300.
+Package hyperref Info: Option `plainpages' set `false' on input line 300.
+(./25155-t.aux)
+\openout1 = `25155-t.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 373.
+LaTeX Font Info:    ... okay on input line 373.
+\c@lofdepth=\count146
+\c@lotdepth=\count147
+(/usr/share/texmf-tetex/tex/context/base/supp-pdf.tex (/usr/share/texmf-tetex/t
+ex/context/base/supp-mis.tex
+loading : Context Support Macros / Miscellaneous (2004.10.26)
+\protectiondepth=\count148
+\scratchcounter=\count149
+\scratchtoks=\toks37
+\scratchdimen=\dimen149
+\scratchskip=\skip166
+\scratchmuskip=\muskip12
+\scratchbox=\box29
+\scratchread=\read2
+\scratchwrite=\write5
+\zeropoint=\dimen150
+\onepoint=\dimen151
+\onebasepoint=\dimen152
+\minusone=\count150
+\thousandpoint=\dimen153
+\onerealpoint=\dimen154
+\emptytoks=\toks38
+\nextbox=\box30
+\nextdepth=\dimen155
+\everyline=\toks39
+\!!counta=\count151
+\!!countb=\count152
+\recursecounter=\count153
+)
+loading : Context Support Macros / PDF (2004.03.26)
+\nofMPsegments=\count154
+\nofMParguments=\count155
+\MPscratchCnt=\count156
+\MPscratchDim=\dimen156
+\MPnumerator=\count157
+\everyMPtoPDFconversion=\toks40
+) (/usr/share/texmf-tetex/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+LaTeX Info: Redefining \color on input line 71.
+(/usr/share/texmf-tetex/tex/latex/graphics/color.cfg
+File: color.cfg 2005/02/03 v1.3 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 125.
+)
+Package hyperref Info: Link coloring ON on input line 373.
+(/usr/share/texmf-tetex/tex/latex/hyperref/nameref.sty
+Package: nameref 2003/12/03 v2.21 Cross-referencing by name of section
+\c@section@level=\count158
+)
+LaTeX Info: Redefining \ref on input line 373.
+LaTeX Info: Redefining \pageref on input line 373.
+(./25155-t.out) (./25155-t.out)
+\openout4 = `25155-t.out'.
+
+Redoing nameref's sectioning
+Redoing nameref's label
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 377.
+(/usr/share/texmf-tetex/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+] <images/illus0003.png, id=176, 105.5142pt x 44.5665pt>
+File: images/illus0003.png Graphic file (type png)
+<use images/illus0003.png> [3 <./images/illus0003.png>] [4
+
+] <images/london.pdf, id=191, 182.6825pt x 72.27pt>
+File: images/london.pdf Graphic file (type pdf)
+<use images/london.pdf> [5 <./images/london.pdf>] [6
+
+] [7
+
+
+] [8
+
+]
+Underfull \vbox (badness 2644) has occurred while \output is active []
+
+[1
+
+] [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[4] <images/illus0015.png, id=276, 115.1502pt x 56.6115pt>
+File: images/illus0015.png Graphic file (type png)
+<use images/illus0015.png> [5 <./images/illus0015.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[7] <images/illus0019.png, id=293, 140.9265pt x 81.1833pt>
+File: images/illus0019.png Graphic file (type png)
+<use images/illus0019.png> [8 <./images/illus0019.png>] <images/illus0020.png, 
+id=302, 77.5698pt x 98.0463pt>
+File: images/illus0020.png Graphic file (type png)
+<use images/illus0020.png>
+Underfull \vbox (badness 5316) has occurred while \output is active []
+
+[9] <images/illus0021.png, id=308, 78.0516pt x 97.8054pt>
+File: images/illus0021.png Graphic file (type png)
+<use images/illus0021.png> [10 <./images/illus0020.png> <./images/illus0021.png
+>] <images/illus0022.png, id=314, 116.1138pt x 70.3428pt>
+File: images/illus0022.png Graphic file (type png)
+<use images/illus0022.png> [11 <./images/illus0022.png>] <images/illus0024.png,
+ id=320, 177.7842pt x 129.1224pt>
+File: images/illus0024.png Graphic file (type png)
+<use images/illus0024.png>
+Underfull \vbox (badness 6364) has occurred while \output is active []
+
+[12] <images/illus0025.png, id=333, 132.7359pt x 61.6704pt>
+File: images/illus0025.png Graphic file (type png)
+<use images/illus0025.png> [13 <./images/illus0024.png>] [14 <./images/illus002
+5.png>] <images/illus0026.png, id=344, 152.4897pt x 90.3375pt>
+File: images/illus0026.png Graphic file (type png)
+<use images/illus0026.png> <images/illus0027a.png, id=345, 125.5089pt x 68.4156
+pt>
+File: images/illus0027a.png Graphic file (type png)
+<use images/illus0027a.png> [15 <./images/illus0026.png>] <images/illus0027b.pn
+g, id=355, 100.2144pt x 64.0794pt>
+File: images/illus0027b.png Graphic file (type png)
+<use images/illus0027b.png> [16 <./images/illus0027a.png> <./images/illus0027b.
+png>] <images/illus0029a.png, id=362, 134.904pt x 65.5248pt>
+File: images/illus0029a.png Graphic file (type png)
+<use images/illus0029a.png> <images/illus0029b.png, id=363, 172.0026pt x 63.838
+5pt>
+File: images/illus0029b.png Graphic file (type png)
+<use images/illus0029b.png> [17 <./images/illus0029a.png>] [18 <./images/illus0
+029b.png>] <images/illus0031.png, id=381, 129.8451pt x 119.0046pt>
+File: images/illus0031.png Graphic file (type png)
+<use images/illus0031.png> [19 <./images/illus0031.png>] <images/illus0032.png,
+ id=387, 114.4275pt x 105.0324pt>
+File: images/illus0032.png Graphic file (type png)
+<use images/illus0032.png> [20] <images/illus0034.png, id=397, 165.7392pt x 195
+.6108pt>
+File: images/illus0034.png Graphic file (type png)
+<use images/illus0034.png> [21 <./images/illus0032.png>] [22 <./images/illus003
+4.png>] <images/illus0035.png, id=410, 116.8365pt x 101.6598pt>
+File: images/illus0035.png Graphic file (type png)
+<use images/illus0035.png> [23 <./images/illus0035.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24] <images/illus0038.png, id=426, 90.0966pt x 217.2918pt>
+File: images/illus0038.png Graphic file (type png)
+<use images/illus0038.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[25] [26 <./images/illus0038.png>] <images/illus0039.png, id=439, 84.5559pt x 5
+4.6843pt>
+File: images/illus0039.png Graphic file (type png)
+<use images/illus0039.png> <images/illus0040.png, id=440, 95.6373pt x 61.1886pt
+>
+File: images/illus0040.png Graphic file (type png)
+<use images/illus0040.png> [27 <./images/illus0039.png>] <images/illus0041.png,
+ id=450, 120.45pt x 134.4222pt>
+File: images/illus0041.png Graphic file (type png)
+<use images/illus0041.png> [28 <./images/illus0040.png> <./images/illus0041.png
+>] <images/illus0042a.png, id=456, 172.2435pt x 51.0708pt>
+File: images/illus0042a.png Graphic file (type png)
+<use images/illus0042a.png> <images/illus0042b.png, id=457, 101.9007pt x 146.94
+9pt>
+File: images/illus0042b.png Graphic file (type png)
+<use images/illus0042b.png> <images/illus0044.png, id=458, 108.8868pt x 291.489
+pt>
+File: images/illus0044.png Graphic file (type png)
+<use images/illus0044.png> [29 <./images/illus0042a.png>] <images/illus0043.png
+, id=468, 56.1297pt x 84.7968pt>
+File: images/illus0043.png Graphic file (type png)
+<use images/illus0043.png>
+Underfull \hbox (badness 1521) in paragraph at lines 1410--1425
+[][]\OT1/cmr/m/n/12 In the linkwork of [][]Fig. 22[][],
+ []
+
+[30 <./images/illus0042b.png> <./images/illus0043.png>] [31 <./images/illus0044
+.png>] <images/illus0045.png, id=480, 147.9126pt x 166.221pt>
+File: images/illus0045.png Graphic file (type png)
+<use images/illus0045.png> [32 <./images/illus0045.png>] <images/illus0046.png,
+ id=489, 133.6995pt x 102.6234pt>
+File: images/illus0046.png Graphic file (type png)
+<use images/illus0046.png> <images/illus0047.png, id=490, 156.3441pt x 120.2091
+pt>
+File: images/illus0047.png Graphic file (type png)
+<use images/illus0047.png> [33 <./images/illus0046.png>] <images/illus0048.png,
+ id=499, 107.4414pt x 187.1793pt>
+File: images/illus0048.png Graphic file (type png)
+<use images/illus0048.png> <images/illus0049.png, id=500, 63.5976pt x 197.538pt
+>
+File: images/illus0049.png Graphic file (type png)
+<use images/illus0049.png> [34 <./images/illus0047.png>] [35 <./images/illus004
+8.png>] <images/illus0050.png, id=510, 127.4361pt x 98.2872pt>
+File: images/illus0050.png Graphic file (type png)
+<use images/illus0050.png> [36 <./images/illus0049.png>] <images/illus0051.png,
+ id=516, 88.8921pt x 197.7789pt>
+File: images/illus0051.png Graphic file (type png)
+<use images/illus0051.png> <images/illus0052.png, id=517, 144.0582pt x 219.7008
+pt>
+File: images/illus0052.png Graphic file (type png)
+<use images/illus0052.png> <images/illus0053.png, id=518, 144.0582pt x 227.8914
+pt>
+File: images/illus0053.png Graphic file (type png)
+<use images/illus0053.png> [37 <./images/illus0050.png>] [38 <./images/illus005
+1.png>] [39 <./images/illus0052.png>] [40 <./images/illus0053.png>] [41] [42
+
+] [43] [44]
+Underfull \vbox (badness 3792) has occurred while \output is active []
+
+[45] [46] <images/illus0060.png, id=598, 62.634pt x 68.6565pt>
+File: images/illus0060.png Graphic file (type png)
+<use images/illus0060.png> [47 <./images/illus0060.png>] [48
+
+] [49] [50] [51] [52] [53] [54] [55] (./25155-t.aux)
+
+ *File List*
+  memoir.cls    2004/04/05 v1.61 configurable document class
+   mem12.clo    2004/03/12 v0.3 memoir class 12pt size option
+mempatch.sty    2005/02/01 v3.5 Patches for memoir class v1.61
+inputenc.sty    2004/02/05 v1.0d Input encoding file
+  latin1.def    2004/02/05 v1.0d Input encoding file
+ amsmath.sty    2000/07/18 v2.13 AMS math features
+ amstext.sty    2000/06/29 v2.01
+  amsgen.sty    1999/11/30 v2.0
+  amsbsy.sty    1999/11/29 v1.2d
+  amsopn.sty    1999/12/14 v2.01 operator names
+    soul.sty    2003/11/17 v2.4 letterspacing/underlining (mf)
+indentfirst.sty    1995/11/23 v1.03 Indent first paragraph (DPC)
+graphicx.sty    1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+  keyval.sty    1999/03/16 v1.13 key=value parser (DPC)
+graphics.sty    2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    1999/03/16 v1.09 sin cos tan (DPC)
+graphics.cfg    2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+  pdftex.def    2002/06/19 v0.03k graphics/color for pdftex
+ wrapfig.sty    2003/01/31  v 3.6
+hyperref.sty    2003/11/30 v6.74m Hypertext links for LaTeX
+  pd1enc.def    2003/11/30 v6.74m Hyperref: PDFDocEncoding definition (HO)
+hyperref.cfg    2002/06/06 v1.2 hyperref configuration of TeXLive and teTeX
+     url.sty    2004/03/15  ver 3.1  Verb mode for urls, etc.
+ hpdftex.def    2003/11/30 v6.74m Hyperref driver for pdfTeX
+  pifont.sty    2004/09/15 PSNFSS-v9.2 Pi font support (SPQR) 
+    upzd.fd    2001/06/04 font definitions for U/pzd.
+    upsy.fd    2001/06/04 font definitions for U/psy.
+memhfixc.sty    2004/05/13 v1.6 package fixes for memoir class
+supp-pdf.tex
+   color.sty    1999/02/16 v1.0i Standard LaTeX Color (DPC)
+   color.cfg    2005/02/03 v1.3 color configuration of teTeX/TeXLive
+ nameref.sty    2003/12/03 v2.21 Cross-referencing by name of section
+ 25155-t.out
+ 25155-t.out
+   t1pcr.fd    2001/06/04 font definitions for T1/pcr.
+images/illus0003.png
+images/london.pdf
+images/illus0015.png
+images/illus0019.png
+images/illus0020.png
+images/illus0021.png
+images/illus0022.png
+images/illus0024.png
+images/illus0025.png
+images/illus0026.png
+images/illus0027a.png
+images/illus0027b.png
+images/illus0029a.png
+images/illus0029b.png
+images/illus0031.png
+images/illus0032.png
+images/illus0034.png
+images/illus0035.png
+images/illus0038.png
+images/illus0039.png
+images/illus0040.png
+images/illus0041.png
+images/illus0042a.png
+images/illus0042b.png
+images/illus0044.png
+images/illus0043.png
+images/illus0045.png
+images/illus0046.png
+images/illus0047.png
+images/illus0048.png
+images/illus0049.png
+images/illus0050.png
+images/illus0051.png
+images/illus0052.png
+images/illus0053.png
+images/illus0060.png
+ ***********
+
+ ) 
+Here is how much of TeX's memory you used:
+ 6001 strings out of 94500
+ 78479 string characters out of 1175771
+ 168568 words of memory out of 1000000
+ 8948 multiletter control sequences out of 10000+50000
+ 15564 words of font info for 54 fonts, out of 500000 for 2000
+ 580 hyphenation exceptions out of 8191
+ 26i,12n,30p,235b,382s stack positions out of 1500i,500n,5000p,200000b,5000s
+PDF statistics:
+ 637 PDF objects out of 300000
+ 139 named destinations out of 131072
+ 509 words of extra memory for PDF output out of 65536
+</usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf-t
+etex/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf-tetex/fonts/type1/blues
+ky/cm/cmmi12.pfb></usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmsl10.pfb></us
+r/share/texmf-tetex/fonts/type1/bluesky/cm/cmcsc10.pfb></usr/share/texmf-tetex/
+fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf-tetex/fonts/type1/bluesky/cm/
+cmti10.pfb></usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmr10.pfb></usr/share
+/texmf-tetex/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf-tetex/fonts/type
+1/bluesky/cm/cmr6.pfb></usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmdunh10.p
+fb></usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf-
+tetex/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texmf-tetex/fonts/type1/blu
+esky/cm/cmr8.pfb></usr/share/texmf-tetex/fonts/type1/bluesky/cm/cmr12.pfb>{/usr
+/share/texmf-tetex/fonts/enc/dvips/psnfss/8r.enc}</usr/share/texmf-tetex/fonts/
+type1/urw/courier/ucrr8a.pfb>
+Output written on 25155-t.pdf (63 pages, 1322151 bytes).
