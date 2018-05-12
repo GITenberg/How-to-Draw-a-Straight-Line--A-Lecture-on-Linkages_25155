@@ -12,6 +12,8 @@ creator:
     gutenberg_agent_id: '31109'
     url: http://www.gutenberg.org/2009/agents/31109
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/25155#How-to-Draw-a-Straight-Line--A-Lecture-on-Linkages
 gutenberg_bookshelf: Mathematics
 gutenberg_issued: '2008-04-24'
 gutenberg_type: Text
